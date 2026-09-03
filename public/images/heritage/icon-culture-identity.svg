@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Culture and Identity</title>
+  <circle cx="32" cy="32" r="29" fill="#FFF8EA" stroke="#EAD4A5" stroke-width="2"/>
+  <path d="M18 47h28M21 43h22M24 43V28h16v15M22 28h20l-10-9-10 9Z" fill="#FFFDF7" stroke="#B98534" stroke-width="2.3" stroke-linejoin="round"/>
+  <path d="M29 43V33h6v10M18 47h28" fill="none" stroke="#D4A85A" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

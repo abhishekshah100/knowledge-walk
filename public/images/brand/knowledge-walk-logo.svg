@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 320" role="img" aria-labelledby="title desc">
+  <title id="title">Knowledge Walk logo</title>
+  <desc id="desc">Blue KW initials above an open book</desc>
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dceaff"/>
+      <stop offset="1" stop-color="#7aa7eb"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f67c7"/>
+      <stop offset="1" stop-color="#142b76"/>
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Open pages -->
+    <path d="M256 231C216 195 169 185 101 201L91 65c67-8 123 10 165 48v118Z"
+          fill="#f8fbff" stroke="url(#page)" stroke-width="12"/>
+    <path d="M256 231c40-36 87-46 155-30l10-136c-67-8-123 10-165 48v118Z"
+          fill="#f8fbff" stroke="url(#page)" stroke-width="12"/>
+
+    <!-- Page details -->
+    <path d="M113 91c49-3 93 10 126 38M115 119c48-2 90 10 124 35M117 148c47-1 88 10 122 33"
+          stroke="#b8cff2" stroke-width="7" opacity=".9"/>
+    <path d="M399 91c-49-3-93 10-126 38M397 119c-48-2-90 10-124 35M395 148c-47-1-88 10-122 33"
+          stroke="#b8cff2" stroke-width="7" opacity=".9"/>
+
+    <!-- Strong lower book silhouette -->
+    <path d="M91 190c74-14 125 2 165 41 40-39 91-55 165-41"
+          stroke="url(#edge)" stroke-width="15"/>
+    <path d="M113 213c62-7 106 10 143 49 37-39 81-56 143-49"
+          stroke="#142b76" stroke-width="12"/>
+    <path d="M256 113v118" stroke="#2f67c7" stroke-width="8"/>
+  </g>
+
+  <text x="256" y="171" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="700"
+        letter-spacing="-5" fill="#2356c7">KW</text>
+</svg>

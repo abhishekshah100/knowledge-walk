@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Ideas Across Generations</title>
+  <circle cx="32" cy="32" r="29" fill="#FFF8EA" stroke="#EAD4A5" stroke-width="2"/>
+  <circle cx="23" cy="27" r="5" fill="#FFFDF7" stroke="#B98534" stroke-width="2.2"/>
+  <circle cx="41" cy="27" r="5" fill="#FFFDF7" stroke="#B98534" stroke-width="2.2"/>
+  <path d="M14.5 45c.8-7.2 3.8-11 8.5-11s7.7 3.8 8.5 11M32.5 45c.8-7.2 3.8-11 8.5-11s7.7 3.8 8.5 11" fill="#FFFDF7" stroke="#B98534" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M27 19c3-3 7-3 10 0M29.5 16.5 27 19l2.5 2.5M34.5 16.5 37 19l-2.5 2.5" fill="none" stroke="#D4A85A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,73 @@
+/*
+ * Central design tokens for Knowledge Walk.
+ *
+ * This is the ONLY place colour hex codes (and the spacing/layout scale)
+ * should be defined. Components must reference these via Tailwind
+ * utilities (e.g. `bg-primary`, `text-text-secondary`) or, for the
+ * spacing/layout tokens, via arbitrary-value classes such as
+ * `py-[var(--space-section-desktop)]` — never hard-code a hex value or a
+ * one-off pixel size directly in a component.
+ */
+
+/* Colours are declared inside `@theme` so Tailwind generates matching
+   utility classes (bg-*, text-*, border-*) automatically. */
+@theme {
+  /* Brand — sky blue, not navy */
+  --color-primary: #0369a1;
+  --color-primary-dark: #075985;
+  --color-primary-light: #7dd3fc;
+
+  /* Section accents */
+  --color-accent-gold: #b8862f;
+  --color-accent-green: #2f9e44;
+  --color-accent-purple: #4f46e5;
+
+  /* Surfaces */
+  --color-background: #f4faff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f2faff;
+  --color-border: #bae6fd;
+
+  /* Text */
+  --color-text-primary: #163b59;
+  --color-text-secondary: #4b6478;
+  --color-text-inverse: #ffffff;
+  --color-ink: #111827;
+
+  /* Glass / frosted overlay surfaces (see GlassCard) */
+  --color-glass-bg: rgba(255, 255, 255, 0.88);
+  --color-glass-border: rgba(186, 230, 253, 0.8);
+
+  /* Social channels */
+  --color-social-linkedin: #0a66c2;
+  --color-social-instagram: #bd3976;
+  --color-social-youtube: #d92525;
+  --color-social-x: #172033;
+  --color-social-facebook: #1977d2;
+
+  /* Feedback */
+  --color-danger: #c0392b;
+
+  /* Fonts (wired to the variables set on <html> in the root layout) */
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-geist);
+}
+
+/* Spacing / layout tokens are plain custom properties, consumed through
+   Tailwind's arbitrary-value syntax so the rhythm of the site stays
+   centralised here instead of being repeated as magic numbers. */
+:root {
+  /* Section spacing (top/bottom padding of a full page section) */
+  --space-section-mobile: 1.5rem; /* 24px */
+  --space-section-tablet: 1.75rem; /* 28px */
+  --space-section-desktop: 2.25rem; /* 36px */
+
+  /* Section header rhythm */
+  --space-heading-subtitle: 1rem; /* 16px, heading -> subtitle */
+  --space-subtitle-content: 1.75rem; /* 28px, subtitle -> section content */
+
+  /* Page container */
+  --container-max-width: 1360px; /* desktop max content width */
+  --container-padding: 1.25rem; /* horizontal gutter on small screens */
+}

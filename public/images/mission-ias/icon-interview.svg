@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Interview</title>
+  <circle cx="32" cy="32" r="29" fill="#EEF6FF" stroke="#BBD9FF" stroke-width="2"/>
+  <rect x="17" y="17" width="30" height="30" rx="4" fill="#fff" stroke="#2478E5" stroke-width="2.5"/>
+  <circle cx="32" cy="27" r="5" fill="#D9EBFF" stroke="#2478E5" stroke-width="2"/>
+  <path d="M23.5 41c.9-5.2 4-8 8.5-8s7.6 2.8 8.5 8" fill="#D9EBFF" stroke="#2478E5" stroke-width="2" stroke-linecap="round"/>
+  <path d="M22 14v6M42 14v6" stroke="#77AEF3" stroke-width="2" stroke-linecap="round"/>
+</svg>

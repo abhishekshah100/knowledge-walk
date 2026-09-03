@@ -1,26 +1,234 @@
 @import "tailwindcss";
+@import "../styles/theme.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * Small additions on top of Tailwind's preflight reset.
+ *
+ * These live in `@layer base` deliberately: Tailwind's utility classes
+ * (bg-primary, text-text-inverse, ...) are emitted in `@layer utilities`,
+ * and CSS cascade layers are resolved before specificity — an unlayered
+ * rule beats ANY rule in a layer, no matter how specific the layered one
+ * is. An unlayered `a { color: inherit }` here would silently win over a
+ * component's `text-*` utility on every link-rendered element (e.g. the
+ * primary Button), which is exactly the bug this layer avoids.
+ */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  /* Global typography defaults. Section-level components are still free
+     to override size/weight with Tailwind utilities where the design
+     calls for it. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Responsive global container used by the <Container> component. Keeps
+   the desktop max-width and gutters defined once, in theme.css. */
+.content-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* A restrained three-stop scrim gives hero copy enough contrast without
+   flattening the photography into a white panel. */
+.hero-content-scrim {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-surface) 94%, transparent) 0%,
+    color-mix(in srgb, var(--color-surface) 70%, transparent) 44%,
+    transparent 76%
+  );
+}
+
+/* Swiper supplies the behavior; these rules only align its controls with the
+   site visual system and prevent their layout from shifting card content. */
+.events-swiper {
+  --swiper-pagination-color: var(--color-primary);
+  overflow: visible;
+}
+
+.events-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.events-swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+.events-carousel-control {
+  position: absolute;
+  top: 45%;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  box-shadow: 0 5px 14px rgb(15 41 66 / 12%);
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.events-carousel-control:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: 0 7px 16px rgb(14 165 233 / 28%);
+  transform: translateY(-1px);
+}
+
+.events-carousel-prev {
+  left: 0;
+}
+
+.events-carousel-next {
+  right: 0;
+}
+
+.events-carousel-control.swiper-button-disabled {
+  border-color: var(--color-border);
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.voices-swiper {
+  --swiper-pagination-color: var(--color-primary);
+  overflow: visible;
+}
+
+.voices-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.voices-swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+.voices-carousel-control {
+  position: absolute;
+  top: 43%;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  box-shadow: 0 5px 14px rgb(15 41 66 / 12%);
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+}
+
+.voices-carousel-control:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: 0 7px 16px rgb(14 165 233 / 28%);
+}
+
+.voices-carousel-prev { left: 0; }
+.voices-carousel-next { right: 0; }
+
+.voices-carousel-control.swiper-button-disabled {
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.voices-carousel-control.swiper-button-lock {
+  display: inline-flex !important;
+}
+
+.voices-swiper .swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 0.3rem !important;
+  background: var(--color-primary-light);
+  opacity: 1;
+}
+
+.voices-swiper .swiper-pagination-bullet-active {
+  transform: scale(1.15);
+  background: var(--color-primary-dark);
+}
+
+.voices-swiper .swiper-pagination {
+  bottom: -2rem !important;
+}
+
+.events-swiper .swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 0.3rem !important;
+  background: var(--color-primary-light);
+  opacity: 1;
+}
+
+.events-swiper .swiper-pagination-bullet-active {
+  transform: scale(1.15);
+  background: var(--color-primary-dark);
+}
+
+.events-swiper .swiper-pagination {
+  bottom: -2rem !important;
+}
+
+@media (max-width: 639px) {
+  .events-carousel-control {
+    top: 42%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events-swiper .swiper-wrapper {
+    transition-duration: 0ms !important;
+  }
+
+  .events-swiper article,
+  .events-swiper img {
+    transition-duration: 0ms !important;
+  }
 }

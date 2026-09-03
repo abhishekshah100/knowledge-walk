@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Prelims</title>
+  <circle cx="32" cy="32" r="29" fill="#EEF6FF" stroke="#BBD9FF" stroke-width="2"/>
+  <rect x="19" y="15" width="26" height="34" rx="3" fill="#fff" stroke="#2478E5" stroke-width="2.5"/>
+  <path d="m24 25 2.3 2.3 4.2-4.6M24 35l2.3 2.3 4.2-4.6M34 25h6M34 35h6" fill="none" stroke="#2478E5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 15v-3h12v3" fill="none" stroke="#77AEF3" stroke-width="2" stroke-linecap="round"/>
+</svg>

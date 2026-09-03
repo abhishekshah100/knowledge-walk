@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Living Traditions</title>
+  <circle cx="32" cy="32" r="29" fill="#FFF8EA" stroke="#EAD4A5" stroke-width="2"/>
+  <path d="M25 17h14c0 4-2.1 6.5-4.3 8 6.3 2.2 10.3 7.4 10.3 13.2C45 44 39.2 48 32 48s-13-4-13-9.8c0-5.8 4-11 10.3-13.2C27.1 23.5 25 21 25 17Z" fill="#FFFDF7" stroke="#B98534" stroke-width="2.3" stroke-linejoin="round"/>
+  <path d="M22 34c6.5 3.8 13.5 3.8 20 0M23 41c5.8-3.3 12.2-3.3 18 0M28 21h8" fill="none" stroke="#D4A85A" stroke-width="2" stroke-linecap="round"/>
+</svg>
