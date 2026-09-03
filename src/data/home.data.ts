@@ -16,7 +16,7 @@ export const homeData: HomeContent = {
         heading: "Where Knowledge Inspires Action",
         description:
           "Empowering young minds through civil services guidance, meaningful conclaves, heritage learning and community initiatives.",
-        primaryCta: { label: "Explore Our Projects", href: "/projects" },
+        primaryCta: { label: "Explore Our Projects", href: "#" },
         secondaryCta: { label: "View Upcoming Events", href: "/#upcoming-events" },
         image: {
           src: "/images/hero/hero-slide-1.png",

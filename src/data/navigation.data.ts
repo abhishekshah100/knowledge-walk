@@ -18,7 +18,7 @@ export const navigationData: NavigationContent = {
     { label: "Contact Us", href: "/contact-us" },
   ],
   ctaLabel: "Join the Movement",
-  ctaHref: "/join",
+  ctaHref: "/#",
   footer: {
     tagline:
       "Empowering young minds through knowledge, leadership and service to build a better, stronger and more inclusive India.",
@@ -37,7 +37,7 @@ export const navigationData: NavigationContent = {
         links: [
           { label: "About Us", href: "/about-us" },
           { label: "Upcoming Events", href: "/#upcoming-events" },
-          { label: "Our Activities", href: "/activities" },
+          { label: "Our Activities", href: "#" },
           { label: "Gallery", href: "#" },
         ],
       },
