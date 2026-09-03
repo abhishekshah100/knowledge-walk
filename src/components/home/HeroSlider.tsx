@@ -138,7 +138,7 @@ export function HeroSlider({ hero }: HeroSliderProps) {
         >
           <div className="flex flex-col md:relative min-h-[520px] md:min-h-[500px] lg:min-h-[520px]">
             {/* Text track */}
-            <div className="overflow-hidden md:absolute md:inset-0 md:z-10 md:flex md:items-center">
+            <div className="overflow-hidden md:absolute md:inset-0 md:z-10 md:flex md:items-center order-last md:order-none">
               <div
                 className="flex w-full transition-transform duration-700 ease-in-out motion-reduce:transition-none"
                 style={trackTransform}
@@ -172,7 +172,7 @@ export function HeroSlider({ hero }: HeroSliderProps) {
 
             {/* Image track — the arrows anchor to this wrapper, which is just
                 the photo on mobile and the whole banner (inset-0) at md+. */}
-            <div className="relative overflow-hidden md:absolute md:inset-0">
+            <div className="relative overflow-hidden order-first md:order-none md:absolute md:inset-0">
               <div
                 className="flex w-full transition-transform duration-700 ease-in-out motion-reduce:transition-none md:h-full"
                 style={trackTransform}
@@ -224,7 +224,7 @@ export function HeroSlider({ hero }: HeroSliderProps) {
 
           {/* Pagination dots — overlaid on the image, pinned to its bottom edge */}
           {slideCount > 1 ? (
-            <div className="absolute inset-x-0 bottom-4 z-20 flex justify-center sm:bottom-6">
+            <div className="absolute inset-x-0 bottom-4 z-20 hidden md:flex justify-center md:bottom-6">
               <div className="flex items-center gap-2 rounded-full bg-surface/80 px-3 py-2 shadow-lg backdrop-blur-md">
                 {slides.map((slide, index) => {
                   const active = index === activeIndex;
