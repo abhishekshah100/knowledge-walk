@@ -17,6 +17,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: siteMetaData.title,
   description: siteMetaData.description,
+  icons: {
+    icon: [
+      { url: "/images/brand/knowledge-walk-logo.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/images/brand/logo.png", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: "/images/brand/logo.png",
+    apple: "/images/brand/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
