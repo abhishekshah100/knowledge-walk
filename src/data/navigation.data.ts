@@ -13,7 +13,7 @@ export const navigationData: NavigationContent = {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about-us" },
     { label: "Mission IAS 2026", href: "/#mission-ias-2026" },
-    { label: "Heritage Conclaves", href: "/#heritage-conclaves" },
+    //{ label: "Heritage Conclaves", href: "/#heritage-conclaves" },
     { label: "Upcoming Events", href: "/#upcoming-events" },
     { label: "Contact Us", href: "/contact-us" },
   ],
