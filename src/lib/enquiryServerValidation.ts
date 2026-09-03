@@ -15,11 +15,14 @@ export function normaliseServerEnquiryValues(values: EnquiryFormValues): Enquiry
 }
 
 export function isValidServerEnquiry(values: EnquiryFormValues): boolean {
+  // Email is optional on the server as well. If provided it must be valid.
+  const isEmailValid =
+    !values.email || (EMAIL_PATTERN.test(values.email) && values.email.length <= ENQUIRY_LIMITS.email);
+
   return Boolean(
     values.fullName &&
       values.fullName.length <= ENQUIRY_LIMITS.fullName &&
-      EMAIL_PATTERN.test(values.email) &&
-      values.email.length <= ENQUIRY_LIMITS.email &&
+      isEmailValid &&
       E164_PHONE_PATTERN.test(values.phone) &&
       values.phone.length <= ENQUIRY_LIMITS.phone &&
       values.program &&

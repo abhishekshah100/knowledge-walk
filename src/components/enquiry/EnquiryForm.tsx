@@ -148,7 +148,7 @@ export function EnquiryForm({ onSuccess }: EnquiryFormProps) {
                 </div>
               ) : null}
             </div>
-            <PhoneInput id="enquiry-phone" name="phone" country={country} value={values.phone || undefined} onChange={(value) => updateValue("phone", value ?? "")} placeholder={ENQUIRY_CONTENT.fields.phone.placeholder} disabled={isSending || isSuccess} aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? errorId("phone") : undefined} className="min-w-0 flex-1 bg-transparent px-3 text-sm text-text-primary outline-none placeholder:text-text-secondary/70" />
+            <PhoneInput id="enquiry-phone" name="phone" country={country} value={values.phone} onChange={(value) => updateValue("phone", value ?? "")} placeholder={ENQUIRY_CONTENT.fields.phone.placeholder} disabled={isSending || isSuccess} aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? errorId("phone") : undefined} className="min-w-0 flex-1 bg-transparent px-3 text-sm text-text-primary outline-none placeholder:text-text-secondary/70" />
           </div>
           {errors.phone ? <p id={errorId("phone")} className="mt-1 text-xs text-danger">{errors.phone}</p> : null}
         </div>

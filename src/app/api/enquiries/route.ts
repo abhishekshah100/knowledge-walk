@@ -67,13 +67,18 @@ export async function POST(request: Request) {
       submittedAt: new Date().toISOString(),
     });
     const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
+    const sendOptions: any = {
       from: fromEmail,
       to: [ownerEmail],
-      replyTo: values.email,
       subject: `New enquiry from ${values.fullName}`,
       ...email,
-    });
+    };
+
+    if (values.email) {
+      sendOptions.replyTo = values.email;
+    }
+
+    const { error } = await resend.emails.send(sendOptions);
 
     if (!error) {
       return Response.json({ success: true });

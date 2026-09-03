@@ -18,7 +18,7 @@ export const navigationData: NavigationContent = {
     { label: "Contact Us", href: "/contact-us" },
   ],
   ctaLabel: "Join the Movement",
-  ctaHref: "/#",
+  ctaHref: "#",
   footer: {
     tagline:
       "Empowering young minds through knowledge, leadership and service to build a better, stronger and more inclusive India.",
