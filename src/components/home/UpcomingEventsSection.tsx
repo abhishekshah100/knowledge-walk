@@ -56,11 +56,11 @@ function EventCard({ event }: { event: EventItem }) {
           <p className="flex items-center gap-1.5"><Icon name="clock" className="h-3.5 w-3.5 shrink-0 text-primary" />{event.time}</p>
           <p className="flex items-center gap-1.5"><Icon name="map-pin" className="h-3.5 w-3.5 shrink-0 text-primary" />{event.location}</p>
         </div>
-        <div className="mt-2 flex items-center justify-between gap-2">
-          <span className="rounded-full border border-accent-green/25 bg-accent-green/10 px-2.5 py-1 text-xs font-bold text-accent-green">
+        <div className="mt-2 grid grid-cols-2 items-center gap-2 lg:flex lg:justify-between">
+          <span className="flex min-h-10 items-center justify-center whitespace-nowrap rounded-full border border-accent-green/25 bg-accent-green/10 px-2 py-1 text-center text-[11px] font-bold text-accent-green lg:min-h-0 lg:px-2.5 lg:text-xs">
             {event.status}
           </span>
-          <JoinMovementButton label="View Event" className="rounded-md px-3 text-sm shadow-sm" />
+          <JoinMovementButton label="View Event" className="min-h-10 w-full rounded-md px-3 text-xs shadow-sm lg:min-h-0 lg:w-auto lg:text-sm" />
         </div>
       </div>
     </article>
