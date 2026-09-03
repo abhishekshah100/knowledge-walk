@@ -18,7 +18,7 @@ export function PillarProjectsSection({ pillarProjects }: PillarProjectsSectionP
           headingClassName="text-text-primary"
         />
 
-        <div className="grid grid-cols-2 gap-3 pt-5 sm:gap-4 sm:pt-[var(--space-subtitle-content)] lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 pt-5 sm:grid-cols-2 sm:gap-5 sm:pt-[var(--space-subtitle-content)] xl:grid-cols-4 lg:gap-6">
           {pillarProjects.projects.map((project) => (
             <PillarProjectCard key={project.title} project={project} />
           ))}

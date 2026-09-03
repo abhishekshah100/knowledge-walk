@@ -54,7 +54,7 @@ export const navigationData: NavigationContent = {
         title: "Contact",
         links: [
           { label: "abhishekshah100@gmail.com", href: "mailto:abhishekshah100@gmail.com" },
-          { label: "+91 98765 43220", href: "tel:+918826314093" },
+          { label: "+91 8826314093", href: "tel:+918826314093" },
           { label: "Gurugram, Haryana, India", href: "#" },
           { label: "Mon-Sat: 9:00 AM - 6:00 PM", href: "#" },
         ],

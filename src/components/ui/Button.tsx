@@ -22,11 +22,11 @@ type ButtonAsLink = BaseProps &
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const baseStyles =
-  "inline-flex min-h-10 items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-colors sm:min-h-11 sm:px-6 sm:py-2.5";
+  "inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition-transform transition-colors disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary: "bg-primary text-text-inverse hover:bg-primary-dark",
-  outline: "border-2 border-border bg-surface text-text-primary hover:bg-surface-muted hover:border-primary-light",
+  outline: "border border-primary bg-surface text-primary hover:bg-surface-muted",
 };
 
 /**

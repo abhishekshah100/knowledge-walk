@@ -37,7 +37,7 @@ export function PillarProjectCard({ project }: PillarProjectCardProps) {
 
   return (
     <div
-      className={`flex h-full flex-col items-start gap-3 rounded-xl border bg-surface p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md ${accent.border}`}
+      className={`flex h-full flex-col items-start gap-3 rounded-2xl border border-border bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md ${accent.border}`}
     >
       <Image
         src={project.image.src}
@@ -48,15 +48,15 @@ export function PillarProjectCard({ project }: PillarProjectCardProps) {
         className="mx-auto h-20 w-full max-w-20 object-contain sm:h-24 sm:max-w-28"
       />
       <div className="flex w-full flex-1 flex-col gap-1.5">
-        <h3 className={`text-base font-bold ${accent.title}`}>{project.title}</h3>
+        <h3 className={`text-base font-bold ${accent.title} text-center w-full`}>{project.title}</h3>
         <p className="flex-1 text-sm leading-6 text-text-secondary">{project.description}</p>
-        <Link
+        {/* <Link
           href={project.href}
           className={`inline-flex w-fit items-center gap-1 rounded-sm text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${accent.link}`}
         >
           {project.ctaLabel}
           <Icon name="chevron-right" className="h-3.5 w-3.5" />
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

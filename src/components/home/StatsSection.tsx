@@ -25,11 +25,11 @@ export function StatsSection({ stats }: StatsSectionProps) {
         />
 
         <GlassCard className="mt-5 overflow-hidden sm:mt-[var(--space-subtitle-content)]">
-          <div className="grid grid-cols-5 divide-x divide-border">
+          <div className="grid grid-cols-5 gap-3 px-2 py-3">
             {stats.stats.map((stat) => (
               <div
                 key={stat.label}
-                className="flex min-w-0 flex-col items-center justify-center gap-1 px-1 py-3 sm:gap-2 sm:px-4 sm:py-8 lg:px-6"
+                className="flex min-w-0 min-h-[110px] flex-col items-center justify-center gap-2 p-3 rounded-lg bg-white/90 shadow-sm"
               >
                 <MetricItem stat={stat} />
               </div>

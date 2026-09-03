@@ -83,10 +83,10 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
 
           <div className="pr-12">
             <p className="text-sm font-semibold text-primary">{ENQUIRY_CONTENT.buttons.trigger}</p>
-            <h2 id="enquiry-modal-title" className="mt-1 font-serif text-2xl text-text-primary sm:text-3xl">
+            <h2 id="enquiry-modal-title" className="mt-1 font-serif text-lg text-text-primary sm:text-3xl truncate whitespace-nowrap">
               {ENQUIRY_CONTENT.title}
             </h2>
-            <p id="enquiry-modal-description" className="mt-2 max-w-lg text-sm text-text-secondary sm:text-base">
+            <p id="enquiry-modal-description" className="mt-2 max-w-lg text-xs text-text-secondary sm:text-base">
               {ENQUIRY_CONTENT.description}
             </p>
           </div>

@@ -16,7 +16,7 @@ export const mediaData: MediaContent = {
       {
         id: "youth-conclave-2024-highlights",
         type: "image",
-        title: "Youth Conclave 2024 Highlights",
+        title: "Youth Conclave 2024",
         thumbnail: { src: "/images/walk-in-action/community-clean-drive.webp", alt: "Youth Conclave 2024 Highlights" },
       },
       {

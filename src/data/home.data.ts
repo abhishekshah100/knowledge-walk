@@ -128,7 +128,7 @@ export const homeData: HomeContent = {
         description:
           "Civil services mentorship, structured preparation and a deep sense of public service purpose.",
         ctaLabel: "Discover Project",
-        href: "/mission-ias",
+        href: "#",
       },
       {
         image: {
@@ -141,7 +141,7 @@ export const homeData: HomeContent = {
         title: "Youth Conclaves",
         description: "Dialogue, leadership and public speaking for confident, compassionate change-makers.",
         ctaLabel: "Discover Project",
-        href: "/youth-conclaves",
+        href: "#",
       },
       {
         image: {
@@ -167,7 +167,7 @@ export const homeData: HomeContent = {
         title: "Other Activities",
         description: "Community learning, campaigns and service projects creating real impact on the ground.",
         ctaLabel: "Discover Project",
-        href: "/activities",
+        href: "#",
       },
     ],
   },

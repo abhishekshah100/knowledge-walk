@@ -8,14 +8,14 @@ interface VoiceCardProps {
 /** Compact participant testimonial card used by the Voices Of Change slider. */
 export function VoiceCard({ testimonial }: VoiceCardProps) {
   return (
-    <article className="flex h-full min-h-44 items-start gap-3 rounded-lg border border-border bg-surface p-4 shadow-sm sm:min-h-48 sm:p-5">
+    <article className="flex h-full min-h-44 items-start gap-3 rounded-2xl border border-border bg-surface p-5 shadow-sm sm:min-h-48 sm:p-6">
       <Image
         src={testimonial.avatar.src}
         alt={testimonial.avatar.alt}
-        width={56}
-        height={56}
-        sizes="56px"
-        className="h-12 w-12 shrink-0 rounded-full border-2 border-surface object-cover shadow-sm sm:h-14 sm:w-14"
+        width={48}
+        height={48}
+        sizes="48px"
+        className="h-11 w-11 shrink-0 rounded-full border-2 border-surface object-cover shadow-sm sm:h-12 sm:w-12"
       />
       <div className="flex min-w-0 flex-1 flex-col">
         <blockquote className="line-clamp-4 text-base leading-6 text-text-secondary">

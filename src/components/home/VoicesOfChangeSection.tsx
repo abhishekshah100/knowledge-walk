@@ -1,6 +1,6 @@
 "use client";
 
-import { A11y, Keyboard, Pagination } from "swiper/modules";
+import { A11y, Keyboard, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
 import type { Swiper as SwiperInstance } from "swiper";
@@ -31,13 +31,18 @@ export function VoicesOfChangeSection({ stories }: VoicesOfChangeSectionProps) {
           </button>
           <Swiper
             className="voices-swiper"
-            modules={[A11y, Keyboard, Pagination]}
+            modules={[A11y, Keyboard, Autoplay, Pagination]}
             slidesPerView={1}
             spaceBetween={16}
             speed={450}
             loop
             watchOverflow={false}
             onSwiper={(swiper) => { swiperRef.current = swiper; }}
+            autoplay={{
+              delay: 1000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
             pagination={{ clickable: true }}
             keyboard={{ enabled: true, onlyInViewport: true }}
             a11y={{ enabled: true, prevSlideMessage: "Show previous voices", nextSlideMessage: "Show next voices" }}

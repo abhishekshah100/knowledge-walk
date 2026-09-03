@@ -17,7 +17,7 @@ export function IdeasInMotionSection({ ideasInMotion }: IdeasInMotionSectionProp
         >
           {ideasInMotion.heading}
         </h2>
-        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-4">
+        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {ideasInMotion.items.map((activity) => (
             <ActivityCard key={activity.title} activity={activity} />
           ))}

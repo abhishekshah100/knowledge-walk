@@ -30,14 +30,14 @@ function useReducedMotion() {
 
 function EventCard({ event }: { event: EventItem }) {
   return (
-    <article className="flex h-full w-full flex-col overflow-hidden rounded-lg border border-border bg-surface shadow-sm transition-shadow duration-300 motion-safe:hover:shadow-md">
+    <article className="flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-shadow duration-300 motion-safe:hover:shadow-md">
       <div className="relative aspect-video shrink-0 overflow-hidden bg-surface-muted">
         <Image
           src={event.image.src}
           alt={event.image.alt}
           fill
           sizes="(min-width: 1024px) 30vw, (min-width: 640px) 44vw, 78vw"
-          className="object-contain"
+          className="object-cover"
         />
       </div>
       <div className="relative flex flex-1 flex-col px-4 pb-4 pt-8 sm:px-5 sm:pb-5">
@@ -60,7 +60,7 @@ function EventCard({ event }: { event: EventItem }) {
           <span className="rounded-full border border-accent-green/25 bg-accent-green/10 px-2.5 py-1 text-xs font-bold text-accent-green">
             {event.status}
           </span>
-          <JoinMovementButton label="View Event" className="min-h-9 rounded-md px-3 text-sm shadow-sm" />
+          <JoinMovementButton label="View Event" className="rounded-md px-3 text-sm shadow-sm" />
         </div>
       </div>
     </article>
