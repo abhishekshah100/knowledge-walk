@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+import { Resend, type CreateEmailOptions } from "resend";
 import { ENQUIRY_CONTENT } from "@/constants/enquiry";
 import { createEnquiryEmail } from "@/lib/enquiryEmailTemplate";
 import {
@@ -67,11 +67,11 @@ export async function POST(request: Request) {
       submittedAt: new Date().toISOString(),
     });
     const resend = new Resend(apiKey);
-    const sendOptions: any = {
+    const sendOptions: CreateEmailOptions = {
+      ...email,
       from: fromEmail,
       to: [ownerEmail],
       subject: `New enquiry from ${values.fullName}`,
-      ...email,
     };
 
     if (values.email) {

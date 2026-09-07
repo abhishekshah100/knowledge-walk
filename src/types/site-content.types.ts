@@ -294,3 +294,109 @@ export interface HomePageData {
   stories: StoriesContent;
   media: MediaContent;
 }
+
+// ---------------------------------------------------------------------------
+// Contact page — "Connect With Us" hero + enquiry form
+// ---------------------------------------------------------------------------
+
+export type ContactAccent = "primary" | "green" | "purple";
+
+export interface ContactMethod {
+  icon: ImageAsset;
+  accent: ContactAccent;
+  title: string;
+  description: string;
+  value: string;
+  href: string;
+}
+
+export interface ContactChannel {
+  icon: ImageAsset;
+  accent: ContactAccent;
+  title: string;
+  description: string;
+  actionLabel: string;
+  actionHref: string;
+}
+
+export interface OfficeHours {
+  icon: ImageAsset;
+  title: string;
+  lines: string[];
+}
+
+export interface ContactFormContent {
+  heading: string;
+  subtitle: string;
+  responseNote: string;
+}
+
+export interface ContactHeroContent {
+  heading: string;
+  description: string;
+  methods: ContactMethod[];
+  whatsapp: ContactChannel;
+  officeHours: OfficeHours;
+  form: ContactFormContent;
+}
+
+// ---------------------------------------------------------------------------
+// Contact page — "Find Us on the Map" section
+// ---------------------------------------------------------------------------
+
+export interface OfficeDetailItem {
+  icon: ImageAsset;
+  title: string;
+  lines: string[];
+}
+
+export interface OfficeLocationContent {
+  heading: string;
+  mapEmbedSrc: string;
+  mapTitle: string;
+  directionsLabel: string;
+  directionsHref: string;
+  markerIcon: ImageAsset;
+  officeBrand: string;
+  officeName: string;
+  addressLines: string[];
+  details: OfficeDetailItem[];
+}
+
+// ---------------------------------------------------------------------------
+// Contact page — "How Can We Help?" + "Frequently Asked Questions"
+// ---------------------------------------------------------------------------
+
+export interface HelpTopic {
+  icon: ImageAsset;
+  title: string;
+  description: string;
+}
+
+export interface HowCanWeHelpContent {
+  heading: string;
+  subtitle: string;
+  topics: HelpTopic[];
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface FaqContent {
+  heading: string;
+  subtitle: string;
+  items: FaqItem[];
+}
+
+// ---------------------------------------------------------------------------
+// Aggregated payload returned by GET /api/contact
+// ---------------------------------------------------------------------------
+
+export interface ContactPageData {
+  contactHero: ContactHeroContent;
+  officeLocation: OfficeLocationContent;
+  howCanWeHelp: HowCanWeHelpContent;
+  faq: FaqContent;
+}

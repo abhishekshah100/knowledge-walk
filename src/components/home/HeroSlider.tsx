@@ -190,6 +190,7 @@ export function HeroSlider({ hero }: HeroSliderProps) {
                       height={slide.image.height ?? 800}
                       sizes="100vw"
                       priority={index === 0}
+                      fetchPriority={index === 0 ? "high" : "auto"}
                       className="h-auto w-full object-contain md:h-full md:object-cover md:object-left"
                     />
                   </div>

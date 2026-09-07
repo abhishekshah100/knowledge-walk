@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import PhoneInput from "react-phone-number-input/input";
 import { getCountries, getCountryCallingCode, type Country } from "react-phone-number-input";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
@@ -171,11 +172,22 @@ export function EnquiryForm({ onSuccess }: EnquiryFormProps) {
         {errors.message ? <p id={errorId("message")} className="mt-1 text-xs text-danger">{errors.message}</p> : null}
       </div>
 
-      {status === "success" ? <p role="status" className="rounded-lg border border-accent-green/30 bg-accent-green/10 px-3 py-2 text-sm font-medium text-accent-green">{ENQUIRY_CONTENT.messages.success}</p> : null}
+      {status === "success" ?<p role="status" className="rounded-lg border border-accent-green/30 bg-accent-green/10 px-3 py-2 text-sm font-medium text-accent-green">{ENQUIRY_CONTENT.messages.success}</p> : null}
       {status === "error" ? <p role="alert" className="rounded-lg border border-danger/30 bg-danger/10 px-3 py-2 text-sm font-medium text-danger">{submissionError || ENQUIRY_CONTENT.messages.failure}</p> : null}
 
       <button type="submit" disabled={isSending || isSuccess} className="flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-text-inverse shadow-md transition-colors hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70">
-        {isSending ? <span className="h-4 w-4 animate-spin rounded-full border-2 border-text-inverse/70 border-t-transparent" aria-hidden="true" /> : null}
+        {isSending ? (
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-text-inverse/70 border-t-transparent" aria-hidden="true" />
+        ) : (
+          <Image
+            src="/images/contact/contact-page-assets/icons/paper-plane-white.webp"
+            alt=""
+            width={16}
+            height={16}
+            sizes="16px"
+            className="h-4 w-4 object-contain"
+          />
+        )}
         {isSending ? ENQUIRY_CONTENT.buttons.sending : ENQUIRY_CONTENT.buttons.submit}
       </button>
     </form>

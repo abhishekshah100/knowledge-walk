@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
 import type { PillarAccent, PillarProject } from "@/types/site-content.types";
 
 interface PillarProjectCardProps {

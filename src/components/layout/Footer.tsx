@@ -48,7 +48,7 @@ export function Footer({ navigation }: FooterProps) {
                 >
                   <Image
                     src={social.image.src}
-                    alt=""
+                    alt="Social"
                     width={social.image.width ?? 24}
                     height={social.image.height ?? 24}
                     className="h-6 w-6 object-contain transition-transform duration-200 group-hover:scale-110"

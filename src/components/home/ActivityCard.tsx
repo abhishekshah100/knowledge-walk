@@ -22,7 +22,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
         <div className="absolute left-1/2 top-0 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2" aria-hidden="true">
           <span className="h-px w-5 bg-border" />
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface p-1 shadow-sm">
-            <Image src={activity.icon.src} alt="" width={40} height={40} className="h-full w-full" />
+            <Image src={activity.icon.src} alt="activity card" width={40} height={40} className="h-full w-full" />
           </span>
           <span className="h-px w-5 bg-border" />
         </div>
