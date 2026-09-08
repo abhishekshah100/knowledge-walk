@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EnquiryProvider } from "@/components/enquiry/EnquiryProvider";
+import { HomeDataProvider } from "@/components/layout/HomeDataProvider";
 import { siteMetaData } from "@/data/home.data";
 import "./globals.css";
 
@@ -35,7 +36,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col"><EnquiryProvider>{children}</EnquiryProvider></body>
+      <body className="min-h-full flex flex-col">
+        <EnquiryProvider>
+          <HomeDataProvider>{children}</HomeDataProvider>
+        </EnquiryProvider>
+      </body>
     </html>
   );
 }

@@ -39,12 +39,9 @@ export function BuildingLeadersSection({ buildingLeaders }: BuildingLeadersSecti
                 </div>
               </div>
 
-              <Button
-                href={buildingLeaders.cta.href}
-                className="self-center px-4 py-2 text-xs shadow-sm ring-2 ring-primary/10 sm:min-w-48 sm:px-8 sm:py-3.5 sm:text-sm sm:shadow-lg sm:ring-4"
-              >
-                {buildingLeaders.cta.label}
-              </Button>
+              <div className="flex justify-center pt-2">
+                <Button href={buildingLeaders.cta.href}>{buildingLeaders.cta.label}</Button>
+              </div>
             </div>
           </div>
         </GlassCard>
