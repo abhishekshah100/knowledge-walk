@@ -1,13 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { A11y, Autoplay, Keyboard, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperInstance } from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
+import { lazy, Suspense } from "react";
 import { Container } from "@/components/ui/Container";
-import { Icon } from "@/components/ui/Icon";
 import { TeamMemberCard } from "./TeamMemberCard";
 import type { OurTeamContent } from "@/types/site-content.types";
 
@@ -19,6 +13,21 @@ interface OurTeamSectionProps {
 const CARDS_PER_ROW = 4;
 
 /**
+ * Swiper (JS + CSS) is only ever needed once there are more members than
+ * fit in one row — lazily imported so the static-grid path (today's 4
+ * members) never fetches it at all. Plain `React.lazy` rather than
+ * `next/dynamic`: Next.js proactively emits a `<link rel="preload">` for a
+ * `next/dynamic` chunk's CSS the moment it's referenced anywhere in the
+ * module graph, regardless of whether the runtime condition below ever
+ * actually renders it — which is exactly what triggered the browser's
+ * "preloaded but not used" warning even after switching away from a
+ * top-level `import "swiper/css"`. `React.lazy` code-splits the same way
+ * without that automatic preload hint, so the chunk (CSS included) is only
+ * fetched when `needsCarousel` is actually true.
+ */
+const TeamCarousel = lazy(() => import("./TeamCarousel").then((mod) => ({ default: mod.TeamCarousel })));
+
+/**
  * About Us page's fifth (currently last) section — "Our Team". Four or
  * fewer members render as a plain static grid (one row on desktop); more
  * than that switches to the same Swiper carousel pattern used by
@@ -28,7 +37,6 @@ const CARDS_PER_ROW = 4;
  * the hero's "Meet Our Team" link can jump straight to it.
  */
 export function OurTeamSection({ team }: OurTeamSectionProps) {
-  const swiperRef = useRef<SwiperInstance | null>(null);
   const needsCarousel = team.members.length > CARDS_PER_ROW;
 
   return (
@@ -45,56 +53,9 @@ export function OurTeamSection({ team }: OurTeamSectionProps) {
         </div>
 
         {needsCarousel ? (
-          <div className="team-carousel relative mx-auto mt-6 max-w-[1240px] px-10 pb-8 sm:px-12">
-            <button
-              type="button"
-              onClick={() => swiperRef.current?.slidePrev()}
-              className="team-carousel-control team-carousel-prev !inline-flex"
-              aria-label="Show previous team member"
-              title="Previous team member"
-            >
-              <Icon name="chevron-left" className="h-4 w-4" />
-            </button>
-            <Swiper
-              className="team-swiper"
-              modules={[A11y, Keyboard, Autoplay, Pagination]}
-              slidesPerView={1}
-              spaceBetween={20}
-              speed={450}
-              loop
-              watchOverflow={false}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-              }}
-              autoplay={{
-                delay: 1000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              pagination={{ clickable: true }}
-              keyboard={{ enabled: true, onlyInViewport: true }}
-              a11y={{ enabled: true, prevSlideMessage: "Show previous team member", nextSlideMessage: "Show next team member" }}
-              breakpoints={{
-                640: { slidesPerView: 2, spaceBetween: 20 },
-                1024: { slidesPerView: CARDS_PER_ROW, spaceBetween: 20 },
-              }}
-            >
-              {team.members.map((member) => (
-                <SwiperSlide key={member.name} className="h-auto !flex">
-                  <TeamMemberCard member={member} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <button
-              type="button"
-              onClick={() => swiperRef.current?.slideNext()}
-              className="team-carousel-control team-carousel-next !inline-flex"
-              aria-label="Show next team member"
-              title="Next team member"
-            >
-              <Icon name="chevron-right" className="h-4 w-4" />
-            </button>
-          </div>
+          <Suspense fallback={null}>
+            <TeamCarousel members={team.members} cardsPerRow={CARDS_PER_ROW} />
+          </Suspense>
         ) : (
           <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {team.members.map((member) => (
