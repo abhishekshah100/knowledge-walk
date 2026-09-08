@@ -28,7 +28,7 @@ export function AboutHeroSection({ hero }: AboutHeroSectionProps) {
             <div className="mt-6 flex flex-row items-center justify-center gap-2 sm:gap-4 lg:justify-start">
               <Button
                 href={hero.primaryCta.href}
-                className="bg-accent-purple hover:bg-accent-purple/90 !min-h-9 !px-3 !py-2 !text-xs sm:!min-h-11 sm:!px-5 sm:!py-2.5 sm:!text-sm"
+                className="border-white/25 bg-accent-purple shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3),0_10px_22px_-8px_color-mix(in_srgb,var(--color-accent-purple)_70%,transparent)] hover:bg-accent-purple/90 hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),0_14px_28px_-8px_color-mix(in_srgb,var(--color-accent-purple)_75%,transparent)] !min-h-9 !px-3 !py-2 !text-xs sm:!min-h-11 sm:!px-5 sm:!py-2.5 sm:!text-sm"
               >
                 {hero.primaryCta.label}
               </Button>

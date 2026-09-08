@@ -215,7 +215,11 @@ export function EnquiryForm({ onSuccess, initialProgram }: EnquiryFormProps) {
       {status === "success" ?<p role="status" className="rounded-lg border border-accent-green/30 bg-accent-green/10 px-3 py-2 text-sm font-medium text-accent-green">{ENQUIRY_CONTENT.messages.success}</p> : null}
       {status === "error" ? <p role="alert" className="rounded-lg border border-danger/30 bg-danger/10 px-3 py-2 text-sm font-medium text-danger">{submissionError || ENQUIRY_CONTENT.messages.failure}</p> : null}
 
-      <button type="submit" disabled={isSending || isSuccess} className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-text-inverse shadow-md transition-colors hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70">
+      <button
+        type="submit"
+        disabled={isSending || isSuccess}
+        className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/25 bg-primary/95 px-5 text-sm font-semibold text-text-inverse shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3),0_10px_22px_-8px_color-mix(in_srgb,var(--color-primary)_70%,transparent)] backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark/95 hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),0_14px_28px_-8px_color-mix(in_srgb,var(--color-primary)_75%,transparent)] active:translate-y-0 active:duration-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
+      >
         {isSending ? (
           <span className="h-4 w-4 animate-spin rounded-full border-2 border-text-inverse/70 border-t-transparent" aria-hidden="true" />
         ) : (
