@@ -43,15 +43,15 @@ export const navigationData: NavigationContent = {
           { label: "Other Activities", href: "#" },
         ],
       },
-      {
-        title: "Explore",
-        links: [
-          { label: "About Us", href: "/about-us" },
-          { label: "Upcoming Events", href: "/#upcoming-events" },
-          { label: "Our Activities", href: "#" },
-          { label: "Gallery", href: "#" },
-        ],
-      },
+      // {
+      //   title: "Explore",
+      //   links: [
+      //     { label: "About Us", href: "/about-us" },
+      //     { label: "Upcoming Events", href: "/#upcoming-events" },
+      //     { label: "Our Activities", href: "#" },
+      //     { label: "Gallery", href: "#" },
+      //   ],
+      // },
       {
         title: "Resources",
         links: [
@@ -81,7 +81,7 @@ export const navigationData: NavigationContent = {
     legalLinks: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Use", href: "#" },
-      { label: "Refund Policy", href: "#" },
+      // { label: "Refund Policy", href: "#" },
     ],
     copyright: "© 2026 Knowledge Walk. All rights reserved.",
   },

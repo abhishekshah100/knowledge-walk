@@ -330,12 +330,6 @@ export const homeData: HomeContent = {
     ],
   },
 
-  partnersIntro: {
-    heading: "Together We Go Further",
-    description:
-      "We partner with educational institutions, organizations and community leaders to build an ecosystem that empowers young India.",
-  },
-
   finalCta: {
     eyebrow: "Be Part Of The Journey",
     heading: "Walk With Knowledge. Lead With Purpose.",

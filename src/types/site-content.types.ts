@@ -185,11 +185,6 @@ export interface IdeasInMotionContent {
   items: IdeaInMotion[];
 }
 
-export interface PartnersIntroContent {
-  heading: string;
-  description: string;
-}
-
 export interface FinalCtaContent {
   eyebrow: string;
   heading: string;
@@ -207,7 +202,6 @@ export interface HomeContent {
   missionIas: MissionIasContent;
   heritageConclave: HeritageConclaveContent;
   ideasInMotion: IdeasInMotionContent;
-  partnersIntro: PartnersIntroContent;
   finalCta: FinalCtaContent;
 }
 

@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { ApiResponse } from "@/types/site-content.types";
 
 interface UseJsonFetchResult<T> {
   data: T | null;
   isLoading: boolean;
   error: string | null;
+  /** Re-runs the fetch from scratch — lets an error state offer a "Retry" action. */
+  refetch: () => void;
 }
 
 /**
@@ -23,6 +25,9 @@ export function useJsonFetch<T>(url: string): UseJsonFetchResult<T> {
   const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
+
+  const refetch = useCallback(() => setAttempt((current) => current + 1), []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -53,7 +58,7 @@ export function useJsonFetch<T>(url: string): UseJsonFetchResult<T> {
     load();
 
     return () => controller.abort();
-  }, [url]);
+  }, [url, attempt]);
 
-  return { data, isLoading, error };
+  return { data, isLoading, error, refetch };
 }

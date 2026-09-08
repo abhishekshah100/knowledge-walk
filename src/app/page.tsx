@@ -46,7 +46,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="flex-1">
+    <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
       <HeroSlider hero={data.home.hero} />
       <PillarProjectsSection pillarProjects={data.home.pillarProjects} />
       <BuildingLeadersSection buildingLeaders={data.home.buildingLeaders} />

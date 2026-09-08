@@ -26,7 +26,7 @@ export function FloatingContactButtons() {
         rel="noopener noreferrer"
         aria-label="Chat with us on WhatsApp (opens in a new tab)"
         title="Chat on WhatsApp"
-        className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-whatsapp to-whatsapp-dark shadow-[0_8px_20px_-4px_rgba(18,140,126,0.55)] ring-1 ring-white/15 transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_26px_-4px_rgba(18,140,126,0.65)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2"
+        className="group relative flex h-12 items-center gap-2 rounded-full bg-gradient-to-br from-whatsapp to-whatsapp-dark py-3 pr-5 pl-3 shadow-[0_8px_20px_-4px_rgba(18,140,126,0.55)] ring-1 ring-white/15 transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_26px_-4px_rgba(18,140,126,0.65)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2"
       >
         <span
           aria-hidden="true"
@@ -38,8 +38,9 @@ export function FloatingContactButtons() {
           width={28}
           height={28}
           sizes="28px"
-          className="relative h-6 w-6 object-contain [filter:brightness(0)_invert(1)]"
+          className="relative h-6 w-6 shrink-0 object-contain [filter:brightness(0)_invert(1)]"
         />
+        <span className="relative text-sm font-semibold whitespace-nowrap text-text-inverse">Chat with us</span>
       </a>
     </div>
   );

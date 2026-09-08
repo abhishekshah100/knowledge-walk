@@ -2,16 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Icon, type IconName } from "@/components/ui/Icon";
+import { ORG_ADDRESS_SHORT } from "@/constants/organization";
 import type { LinkItem, NavigationContent } from "@/types/site-content.types";
 
 interface FooterProps {
   navigation: NavigationContent;
 }
 
-function contactIcon(link: LinkItem, index: number): IconName {
+/**
+ * Picks the icon by what the link actually is, not by its position in the
+ * array — a positional check (e.g. "the 3rd link is always the address")
+ * would silently show the wrong icon the moment the Contact group's link
+ * order changes in `navigation.data.ts`.
+ */
+function contactIcon(link: LinkItem): IconName {
   if (link.href.startsWith("mailto:")) return "mail";
   if (link.href.startsWith("tel:")) return "phone";
-  return index === 2 ? "map-pin" : "clock";
+  if (link.label === ORG_ADDRESS_SHORT) return "map-pin";
+  return "clock";
 }
 
 /** Independent site footer fed entirely from navigation.footer API content. */
@@ -21,8 +29,8 @@ export function Footer({ navigation }: FooterProps) {
   return (
     <footer className="border-t-2 border-primary/35 bg-footer-bg" aria-label="Site footer">
       <Container className="py-12 sm:py-16">
-        <div className="grid gap-9 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 lg:items-start lg:gap-6">
-          <div className="lg:col-span-2 lg:pr-10">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+          <div className="lg:max-w-sm">
             <Link href="/" className="inline-flex items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
               <Image
                 src={navigation.logo.src}
@@ -58,32 +66,42 @@ export function Footer({ navigation }: FooterProps) {
             </div>
           </div>
 
-          {footer.linkGroups
-            .filter((g) => g.title !== "Resources")
-            .map((group) => {
-              const isContactGroup = group.title === "Contact";
+          {/*
+            A flex-wrap cluster, not a fixed-column grid — the column count
+            here has changed twice already (Explore and Resources both got
+            hidden), and a rigid `grid-cols-5` sized for a specific count
+            just leaves a lopsided empty gap once fewer groups remain. This
+            adapts to however many groups are visible and keeps them
+            clustered together instead of stretched apart.
+          */}
+          <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:gap-x-14 sm:gap-y-10 lg:gap-x-20">
+            {footer.linkGroups
+              .filter((g) => g.title !== "Resources")
+              .map((group) => {
+                const isContactGroup = group.title === "Contact";
 
-              return (
-                <div key={group.title} className="flex flex-col border-t border-border/80 pt-5 sm:border-t-0 sm:pt-0 lg:border-l lg:border-border lg:px-7 lg:pt-1 last:lg:pr-0">
-                  <h2 className="text-sm font-bold text-text-primary">{group.title}</h2>
-                  <div className="mt-2 h-0.5 w-8 bg-primary" aria-hidden="true" />
-                  <ul className="mt-4 space-y-2.5">
-                    {group.links.map((link) => (
-                      <li key={link.label}>
-                        <Link href={link.href} className={`group inline-flex text-sm leading-5 text-text-secondary transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isContactGroup ? "items-start gap-2" : "relative items-center"}`}>
-                          {isContactGroup ? (
-                            <Icon name={contactIcon(link, group.links.indexOf(link))} className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                          ) : (
-                            <Icon name="chevron-right" className="absolute -left-4 h-3.5 w-3.5 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
-                          )}
-                          <span>{link.label}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
+                return (
+                  <div key={group.title} className="flex min-w-[9rem] flex-col border-t border-border/80 pt-5 sm:border-t-0 sm:pt-0">
+                    <h2 className="text-sm font-bold tracking-wide text-text-primary uppercase">{group.title}</h2>
+                    <div className="mt-2.5 h-0.5 w-8 rounded-full bg-primary" aria-hidden="true" />
+                    <ul className="mt-5 space-y-3">
+                      {group.links.map((link) => (
+                        <li key={link.label}>
+                          <Link href={link.href} className={`group inline-flex w-full min-w-0 text-sm leading-5 text-text-secondary transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isContactGroup ? "items-start gap-2.5" : "relative items-center"}`}>
+                            {isContactGroup ? (
+                              <Icon name={contactIcon(link)} className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            ) : (
+                              <Icon name="chevron-right" className="absolute -left-4 h-3.5 w-3.5 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
+                            )}
+                            <span className="min-w-0 break-words">{link.label}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+          </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-border pt-5 text-sm text-text-secondary sm:flex-row sm:items-center sm:justify-between">

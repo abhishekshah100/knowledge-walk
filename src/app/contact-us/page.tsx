@@ -46,7 +46,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="flex-1">
+    <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
       <ContactHeroSection contactHero={contactData.contactHero} initialProgram={selectedProgram} />
       <OfficeLocationSection officeLocation={contactData.officeLocation} />
       <HelpAndFaqSection howCanWeHelp={contactData.howCanWeHelp} faq={contactData.faq} onTopicSelect={handleTopicSelect} />

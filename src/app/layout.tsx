@@ -38,6 +38,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="min-h-full flex flex-col">
+        {/*
+          First focusable element on every page. Invisible until it receives
+          keyboard focus (Tab from a fresh page load), so sighted mouse users
+          never see it, but a keyboard/screen-reader user can jump straight
+          past the header's nav links to the actual page content.
+        */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-text-inverse focus:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        >
+          Skip to main content
+        </a>
         <EnquiryProvider>
           <HomeDataProvider>{children}</HomeDataProvider>
           <FloatingContactButtons />

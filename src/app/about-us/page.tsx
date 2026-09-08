@@ -41,7 +41,7 @@ export default function AboutPage() {
   }
 
   return (
-    <main className="flex-1">
+    <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
       <AboutHeroSection hero={aboutData.hero} />
       <AboutStorySection story={aboutData.story} />
       <OurValuesSection values={aboutData.values} />

@@ -26,10 +26,28 @@ const HomeDataContext = createContext<HomeDataContextValue | null>(null);
  * page independently rendering (and refetching for) its own copies.
  */
 export function HomeDataProvider({ children }: Readonly<{ children: ReactNode }>) {
-  const { data, isLoading, error } = useJsonFetch<HomePageData>("/api/home");
+  const { data, isLoading, error, refetch } = useJsonFetch<HomePageData>("/api/home");
 
   return (
     <HomeDataContext.Provider value={{ data, isLoading, error }}>
+      {/*
+        Without this, a failed `/api/home` request would silently drop the
+        Header and Footer on every route — including ones (About, Contact)
+        whose own page content loaded fine — leaving the visitor stranded
+        with no navigation and no indication anything went wrong.
+      */}
+      {error ? (
+        <div role="alert" className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-danger/10 px-4 py-2 text-center text-sm text-danger">
+          <span>We couldn&apos;t load site navigation.</span>
+          <button
+            type="button"
+            onClick={refetch}
+            className="rounded-sm font-semibold underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger focus-visible:ring-offset-2"
+          >
+            Retry
+          </button>
+        </div>
+      ) : null}
       {data ? <Header navigation={data.navigation} /> : null}
       {children}
       {data ? <Footer navigation={data.navigation} /> : null}

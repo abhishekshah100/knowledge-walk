@@ -11,9 +11,10 @@ interface StatsSectionProps {
 /**
  * "Growing Ideas Into Impact" — all five metrics live inside one shared
  * glass panel, separated by hairline dividers instead of gaps between
- * separate cards. `sm:grid-cols-5` keeps them on one row at every width
- * from `sm` up (a grid divides evenly, so it can't overflow into an
- * unwanted second row the way fixed-width items could).
+ * separate cards. Two columns on mobile (five items force-fit into one
+ * cramped row otherwise), three on tablet, five in a single row from
+ * `lg` up — the same responsive breakdown already used for the About
+ * page's five-item Values grid.
  */
 export function StatsSection({ stats }: StatsSectionProps) {
   return (
@@ -25,7 +26,7 @@ export function StatsSection({ stats }: StatsSectionProps) {
         />
 
         <GlassCard className="mt-5 overflow-hidden sm:mt-[var(--space-subtitle-content)]">
-          <div className="grid grid-cols-5 gap-3 px-2 py-3">
+          <div className="grid grid-cols-2 gap-3 px-3 py-4 sm:grid-cols-3 sm:px-4 lg:grid-cols-5 lg:px-2 lg:py-3">
             {stats.stats.map((stat) => (
               <div
                 key={stat.label}
