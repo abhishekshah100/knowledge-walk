@@ -371,6 +371,8 @@ export interface HelpTopic {
   icon: ImageAsset;
   title: string;
   description: string;
+  /** Matches one of `ENQUIRY_PROGRAM_OPTIONS`'s labels — clicking the topic preselects this in the enquiry form. */
+  programOption?: string;
 }
 
 export interface HowCanWeHelpContent {
@@ -399,4 +401,107 @@ export interface ContactPageData {
   officeLocation: OfficeLocationContent;
   howCanWeHelp: HowCanWeHelpContent;
   faq: FaqContent;
+}
+
+// ---------------------------------------------------------------------------
+// About page — hero + "Our Story"
+// ---------------------------------------------------------------------------
+
+export interface AboutHeroContent {
+  /** Current-page label for the breadcrumb, e.g. "About Us". */
+  breadcrumbLabel: string;
+  badge: string;
+  heading: string;
+  description: string;
+  primaryCta: LinkItem;
+  secondaryCta: LinkItem;
+  image: ImageAsset;
+}
+
+export interface StoryValue {
+  icon: ImageAsset;
+  label: string;
+}
+
+export interface StoryQuote {
+  quote: string;
+  attribution: string;
+}
+
+export interface AboutStoryContent {
+  badge: string;
+  heading: string;
+  paragraphs: string[];
+  quote: StoryQuote;
+  values: StoryValue[];
+  /** Feeds `ImageCollage`: two stacked landscape photos + one tall portrait. */
+  images: ImageAsset[];
+}
+
+// ---------------------------------------------------------------------------
+// About page — "Our Values"
+// ---------------------------------------------------------------------------
+
+export type ValueAccent = "blue" | "teal" | "indigo" | "purple" | "gold";
+
+export interface ValueItem {
+  icon: ImageAsset;
+  title: string;
+  description: string;
+  accent: ValueAccent;
+}
+
+export interface OurValuesContent {
+  badge: string;
+  heading: string;
+  subtitle: string;
+  values: ValueItem[];
+}
+
+// ---------------------------------------------------------------------------
+// About page — "Our Journey"
+// ---------------------------------------------------------------------------
+
+export interface JourneyMilestone {
+  icon: ImageAsset;
+  title: string;
+  description: string;
+}
+
+export interface OurJourneyContent {
+  badge: string;
+  heading: string;
+  subtitle: string;
+  milestones: JourneyMilestone[];
+  image: ImageAsset;
+}
+
+// ---------------------------------------------------------------------------
+// About page — "Our Team"
+// ---------------------------------------------------------------------------
+
+export interface TeamMember {
+  photo: ImageAsset;
+  name: string;
+  role: string;
+  quote: string;
+}
+
+export interface OurTeamContent {
+  badge: string;
+  heading: string;
+  subtitle: string;
+  members: TeamMember[];
+}
+
+// ---------------------------------------------------------------------------
+// Aggregated payload returned by GET /api/about
+// ---------------------------------------------------------------------------
+
+export interface AboutPageData {
+  hero: AboutHeroContent;
+  story: AboutStoryContent;
+  values: OurValuesContent;
+  journey: OurJourneyContent;
+  team: OurTeamContent;
 }

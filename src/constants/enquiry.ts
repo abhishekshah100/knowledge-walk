@@ -7,6 +7,8 @@ export const ENQUIRY_PROGRAM_OPTIONS: ProgramOption[] = [
   { value: "knowledge-walk", label: "Knowledge Walk" },
   { value: "other-activities", label: "Other Activities" },
   { value: "upcoming-events", label: "Upcoming Events" },
+  { value: "program-enquiries", label: "Program Enquiries" },
+  { value: "partnerships", label: "Partnerships & Collaborations" },
   { value: "general-enquiry", label: "General Enquiry" },
 ];
 

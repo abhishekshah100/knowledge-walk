@@ -22,11 +22,21 @@
   --color-accent-green: #2f9e44;
   --color-accent-purple: #4f46e5;
 
+  /* Brand-specific — WhatsApp's own colour, darkened from the official
+     #25D366 for sufficient contrast against white text/icons. */
+  --color-whatsapp: #128c7e;
+  --color-whatsapp-dark: #0e6b60;
+
   /* Surfaces */
   --color-background: #f4faff;
   --color-surface: #ffffff;
   --color-surface-muted: #f2faff;
   --color-border: #bae6fd;
+
+  /* A visibly darker blue-grey (distinct from the pale page background
+     above) reserved for the footer, so it reads as its own closing band
+     rather than blending into the page. */
+  --color-footer-bg: #dbe4ee;
 
   /* Text */
   --color-text-primary: #163b59;
@@ -48,10 +58,12 @@
   /* Feedback */
   --color-danger: #c0392b;
 
-  /* Fonts (wired to the variables set on <html> in the root layout) */
-  --font-sans: var(--font-geist);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-geist);
+  /* Fonts — Roboto (body) + Playfair Display (headings), loaded via the
+     <link> tag in the root layout; system fallbacks keep text legible if
+     that stylesheet is ever slow or blocked. */
+  --font-sans: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
 }
 
 /* Spacing / layout tokens are plain custom properties, consumed through

@@ -1,13 +1,16 @@
+import {
+  ORG_ADDRESS_GEOCODE,
+  ORG_ADDRESS_LINES,
+  ORG_EMAIL,
+  ORG_EMAIL_HREF,
+  ORG_OFFICE_HOURS_LINES,
+  ORG_PHONE_DISPLAY,
+  ORG_PHONE_HREF,
+  ORG_WHATSAPP_HREF,
+} from "@/constants/organization";
 import type { ContactHeroContent, FaqContent, HowCanWeHelpContent, OfficeLocationContent } from "@/types/site-content.types";
 
-const ICONS_DIR = "/images/contact/contact-page-assets/icons";
-
-/**
- * Real office address (Kellton's Gurugram office), used to geocode the
- * embedded map and the "Get Directions" link — no Maps API key required
- * for either the `output=embed` map view or the `dir` deep link.
- */
-const OFFICE_ADDRESS = "ILABS Centre, Plot No. 404-405, Udyog Vihar Phase 3, Sector 20, Gurugram, Haryana 122016, India";
+const ICONS_DIR = "/images/contact/icons";
 
 /** Content for the Contact Us page's first section — "Connect With Us" + the enquiry form. */
 export const contactHeroData: ContactHeroContent = {
@@ -20,16 +23,16 @@ export const contactHeroData: ContactHeroContent = {
       accent: "primary",
       title: "Email Us",
       description: "Reach out anytime at",
-      value: "support@knowledgewalk.org",
-      href: "mailto:support@knowledgewalk.org",
+      value: ORG_EMAIL,
+      href: ORG_EMAIL_HREF,
     },
     {
       icon: { src: `${ICONS_DIR}/phone.webp`, alt: "Phone icon", width: 128, height: 128 },
       accent: "purple",
       title: "Call Us",
       description: "Speak with our team",
-      value: "+91 8826314093",
-      href: "tel:+918826314093",
+      value: ORG_PHONE_DISPLAY,
+      href: ORG_PHONE_HREF,
     },
   ],
   whatsapp: {
@@ -38,12 +41,12 @@ export const contactHeroData: ContactHeroContent = {
     title: "WhatsApp",
     description: "Chat with our team for quick support",
     actionLabel: "Chat on WhatsApp",
-    actionHref: "https://wa.me/918826314093",
+    actionHref: ORG_WHATSAPP_HREF,
   },
   officeHours: {
     icon: { src: `${ICONS_DIR}/clock.webp`, alt: "Office hours icon", width: 128, height: 128 },
     title: "Office Hours",
-    lines: ["Monday – Saturday", "9:00 AM – 6:00 PM"],
+    lines: ORG_OFFICE_HOURS_LINES,
   },
   form: {
     heading: "Send Us a Message",
@@ -55,14 +58,14 @@ export const contactHeroData: ContactHeroContent = {
 /** Content for the Contact Us page's second section — "Find Us on the Map". */
 export const officeLocationData: OfficeLocationContent = {
   heading: "Find Us on the Map",
-  mapEmbedSrc: `https://www.google.com/maps?q=${encodeURIComponent(OFFICE_ADDRESS)}&output=embed`,
+  mapEmbedSrc: `https://www.google.com/maps?q=${encodeURIComponent(ORG_ADDRESS_GEOCODE)}&output=embed`,
   mapTitle: "Map showing the Knowledge Walk office location in Gurugram",
   directionsLabel: "Get Directions",
-  directionsHref: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(OFFICE_ADDRESS)}`,
+  directionsHref: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ORG_ADDRESS_GEOCODE)}`,
   markerIcon: { src: `${ICONS_DIR}/location-pin.webp`, alt: "Location pin icon", width: 128, height: 128 },
   officeBrand: "Knowledge Walk",
   officeName: "Our Office",
-  addressLines: ["ILABS Centre, 6th Floor", "Plot No. 404–405, Udyog Vihar, Phase III", "Gurugram, Haryana 122016, India"],
+  addressLines: ORG_ADDRESS_LINES,
   details: [
     {
       icon: { src: `${ICONS_DIR}/navigation.webp`, alt: "Nearby landmark icon", width: 128, height: 128 },
@@ -77,7 +80,7 @@ export const officeLocationData: OfficeLocationContent = {
     {
       icon: { src: `${ICONS_DIR}/clock.webp`, alt: "Office hours icon", width: 128, height: 128 },
       title: "Office Hours",
-      lines: ["Monday – Saturday", "9:00 AM – 6:00 PM"],
+      lines: ORG_OFFICE_HOURS_LINES,
     },
   ],
 };
@@ -91,16 +94,19 @@ export const howCanWeHelpData: HowCanWeHelpContent = {
       icon: { src: `${ICONS_DIR}/program-enquiries.webp`, alt: "Program enquiries icon", width: 128, height: 128 },
       title: "Program Enquiries",
       description: "Questions about Mission IAS, Youth Conclaves, Heritage Conclaves or our other initiatives.",
+      programOption: "Program Enquiries",
     },
     {
       icon: { src: `${ICONS_DIR}/partnerships.webp`, alt: "Partnerships and collaborations icon", width: 128, height: 128 },
       title: "Partnerships & Collaborations",
       description: "Explore opportunities to work together for greater impact.",
+      programOption: "Partnerships & Collaborations",
     },
     {
       icon: { src: `${ICONS_DIR}/media-questions.webp`, alt: "Media and general questions icon", width: 128, height: 128 },
       title: "Media & General Questions",
       description: "For press, media inquiries or any other questions about Knowledge Walk.",
+      programOption: "General Enquiry",
     },
   ],
 };
@@ -115,12 +121,24 @@ export const faqData: FaqContent = {
       answer: "We usually respond within one business day. For anything urgent, message us on WhatsApp for a faster reply.",
     },
     {
-      question: "Can I visit the office without an appointment?",
+      question: "Can I visit without an appointment?",
       answer: "We recommend scheduling a visit in advance so our team is available to welcome you and answer your questions properly.",
     },
     {
-      question: "How can I volunteer with Knowledge Walk?",
+      question: "How can I volunteer?",
       answer: "Send us a message through the Program Enquiries channel with your area of interest, and our team will get in touch with the next steps.",
+    },
+    {
+      question: "How can I register for a program?",
+      answer: "Select the program you're interested in from the enquiry form on this page, share a few details, and our team will guide you through registration.",
+    },
+    {
+      question: "Is there a registration fee?",
+      answer: "Most of our community programs are free to join. A few specialised initiatives may involve a nominal fee, which we always share upfront before you enrol.",
+    },
+    {
+      question: "How will my personal information be used?",
+      answer: "We only use the details you share to respond to your enquiry and keep you updated on relevant programs — we never sell your information. See our Privacy Policy for full details.",
     },
   ],
 };

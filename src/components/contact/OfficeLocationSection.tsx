@@ -17,13 +17,14 @@ export function OfficeLocationSection({ officeLocation }: OfficeLocationSectionP
   return (
     <section id="office-location" className="relative scroll-mt-24">
       <Container className="pt-[var(--space-section-mobile)] md:pt-[var(--space-section-tablet)] lg:pt-[var(--space-section-desktop)]">
-        <div className="flex flex-col gap-2">
-          <h2 className="font-serif text-2xl font-extrabold tracking-tight text-accent-purple sm:text-3xl">
+        <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
+          <span className="h-1 w-12 rounded-full bg-accent-purple" aria-hidden="true" />
+          <h2 className="font-serif text-2xl font-extrabold tracking-tight text-text-primary sm:text-3xl">
             {officeLocation.heading}
           </h2>
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-stretch">
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-stretch">
           <OfficeMapEmbed
             src={officeLocation.mapEmbedSrc}
             title={officeLocation.mapTitle}

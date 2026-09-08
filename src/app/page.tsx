@@ -56,7 +56,6 @@ export default function HomePage() {
       <Header navigation={data.navigation} />
       <main className="flex-1">
         <HeroSlider hero={data.home.hero} />
-        <StatsSection stats={data.home.stats} />
         <PillarProjectsSection pillarProjects={data.home.pillarProjects} />
         <BuildingLeadersSection buildingLeaders={data.home.buildingLeaders} />
         <MissionIasSection missionIas={data.home.missionIas} />
@@ -64,6 +63,7 @@ export default function HomePage() {
         <IdeasInMotionSection ideasInMotion={data.home.ideasInMotion} />
         <UpcomingEventsSection events={data.events} />
         <VoicesOfChangeSection stories={data.stories} />
+        <StatsSection stats={data.home.stats} />
         <KnowledgeWalkInActionSection media={data.media} />
         <FinalCtaSection finalCta={data.home.finalCta} />
       </main>

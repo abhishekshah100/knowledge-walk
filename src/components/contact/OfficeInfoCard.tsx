@@ -51,7 +51,7 @@ export function OfficeInfoCard({ officeLocation }: OfficeInfoCardProps) {
         className="mt-auto w-full gap-2"
       >
         <Image
-          src="/images/contact/contact-page-assets/icons/navigation.webp"
+          src="/images/contact/icons/navigation.webp"
           alt=""
           width={16}
           height={16}

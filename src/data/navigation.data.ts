@@ -1,3 +1,11 @@
+import {
+  ORG_ADDRESS_SHORT,
+  ORG_EMAIL,
+  ORG_EMAIL_HREF,
+  ORG_OFFICE_HOURS_INLINE,
+  ORG_PHONE_DISPLAY,
+  ORG_PHONE_HREF,
+} from "@/constants/organization";
 import type { NavigationContent } from "@/types/site-content.types";
 
 /**
@@ -8,7 +16,10 @@ import type { NavigationContent } from "@/types/site-content.types";
 export const navigationData: NavigationContent = {
   brandName: "Knowledge Walk",
   brandShortName: "KW",
-  logo: { src: "/images/brand/knowledge-walk-logo.svg", alt: "Knowledge Walk logo", width: 40, height: 40 },
+  // Real intrinsic ratio (the SVG's own viewBox is 512x320 = 1.6:1) — kept
+  // accurate so `next/image`'s aspect-ratio check doesn't flag a mismatch
+  // wherever a component only overrides one CSS dimension (e.g. `h-10 w-auto`).
+  logo: { src: "/images/brand/knowledge-walk-logo.svg", alt: "Knowledge Walk logo", width: 64, height: 40 },
   primaryLinks: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about-us" },
@@ -53,10 +64,10 @@ export const navigationData: NavigationContent = {
       {
         title: "Contact",
         links: [
-          { label: "abhishekshah100@gmail.com", href: "mailto:abhishekshah100@gmail.com" },
-          { label: "+91 8826314093", href: "tel:+918826314093" },
-          { label: "Gurugram, Haryana, India", href: "#" },
-          { label: "Mon-Sat: 9:00 AM - 6:00 PM", href: "#" },
+          { label: ORG_EMAIL, href: ORG_EMAIL_HREF },
+          { label: ORG_PHONE_DISPLAY, href: ORG_PHONE_HREF },
+          { label: ORG_ADDRESS_SHORT, href: "#" },
+          { label: ORG_OFFICE_HOURS_INLINE, href: "#" },
         ],
       },
     ],

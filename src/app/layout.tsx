@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { EnquiryProvider } from "@/components/enquiry/EnquiryProvider";
 import { siteMetaData } from "@/data/home.data";
 import "./globals.css";
-
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: siteMetaData.title,
@@ -29,10 +18,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geist.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className="h-full antialiased" data-scroll-behavior="smooth">
+      <head>
+        {/*
+          `next/font/google` is loaded via Turbopack's internal font loader,
+          which depends on an internal `@vercel/turbopack-next` package that
+          isn't present in this project's node_modules — using it throws a
+          hard "Module not found" build error on every page. A plain <link>
+          sidesteps that loader entirely: same fonts (Roboto + Playfair
+          Display), just fetched the classic way instead of self-hosted.
+        */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-full flex flex-col"><EnquiryProvider>{children}</EnquiryProvider></body>
     </html>
   );

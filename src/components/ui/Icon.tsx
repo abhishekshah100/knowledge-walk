@@ -5,7 +5,7 @@ export type IconName =
   | "book-open" | "users" | "hand-heart" | "landmark" | "calendar-days"
   | "user-check" | "columns-3" | "compass" | "megaphone" | "landmark-arch"
   | "handshake" | "shield-check" | "clock" | "map-pin" | "play" | "mail" | "phone"
-  | "whatsapp" | "send" | "check-circle";
+  | "whatsapp" | "send" | "check-circle" | "quote";
 
 type IconProps = Omit<SVGProps<SVGSVGElement>, "name"> & { name: IconName };
 
@@ -35,6 +35,7 @@ const ICON_PATHS: Record<IconName, ReactNode> = {
   whatsapp: <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z M8.5 8.3c.2-.5.4-.5.6-.5h.5c.2 0 .4 0 .5.4.2.4.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3 0 .2 0 .9-.3 1.3-.3.5-1.4 1-2 1-.6 0-1.5-.1-3.4-1-2.4-1.2-4-3.6-4.1-3.8-.1-.2-1-1.3-1-2.5 0-1.2.6-1.7.8-2Z" fill="currentColor" stroke="none" />,
   send: <><path d="M4 20 20.5 12 4 4l2 7 9 1-9 1Z" /></>,
   "check-circle": <><circle cx="12" cy="12" r="9" /><path d="m8.5 12.3 2.3 2.3 4.7-5" /></>,
+  quote: <path d="M7.5 8.5c-2 1.2-3 2.9-3 5.1 0 2.1 1.4 3.4 3.1 3.4 1.5 0 2.6-1.1 2.6-2.6 0-1.4-1-2.4-2.3-2.4-.2 0-.4 0-.6.1.2-1.4 1.2-2.6 2.5-3.4Zm8 0c-2 1.2-3 2.9-3 5.1 0 2.1 1.4 3.4 3.1 3.4 1.5 0 2.6-1.1 2.6-2.6 0-1.4-1-2.4-2.3-2.4-.2 0-.4 0-.6.1.2-1.4 1.2-2.6 2.5-3.4Z" fill="currentColor" stroke="none" />,
 };
 
 /** Renders one of the site's small inline stroke icons by name. */

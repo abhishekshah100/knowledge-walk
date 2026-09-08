@@ -21,6 +21,22 @@
     scroll-behavior: smooth;
   }
 
+  /* Every image on this site renders through `next/image` with explicit
+     width/height props and its own Tailwind size utilities controlling the
+     final rendered box — none of them depend on Tailwind Preflight's
+     `img { max-width: 100% }` responsive safety net. Left in place, that
+     rule silently clamps a small fixed-size icon's *width* down to
+     whatever space a tightly-padded/bordered flex parent happens to leave
+     (while `height` stays correctly overridden by the `h-*` utility),
+     producing a distorted, non-aspect-ratio box — exactly the mismatch
+     `next/image` warns about ("has either width or height modified, but
+     not the other"). `data-nimg` is an attribute Next always sets on its
+     optimized <img>, so this only touches images going through it.
+     */
+  img[data-nimg] {
+    max-width: none;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
@@ -199,6 +215,75 @@
   bottom: -2rem !important;
 }
 
+.team-swiper {
+  --swiper-pagination-color: var(--color-primary);
+  overflow: visible;
+}
+
+.team-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.team-swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+.team-carousel-control {
+  position: absolute;
+  top: 43%;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  box-shadow: 0 5px 14px rgb(15 41 66 / 12%);
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+}
+
+.team-carousel-control:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: 0 7px 16px rgb(14 165 233 / 28%);
+}
+
+.team-carousel-prev { left: 0; }
+.team-carousel-next { right: 0; }
+
+.team-carousel-control.swiper-button-disabled {
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.team-carousel-control.swiper-button-lock {
+  display: inline-flex !important;
+}
+
+.team-swiper .swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 0.3rem !important;
+  background: var(--color-primary-light);
+  opacity: 1;
+}
+
+.team-swiper .swiper-pagination-bullet-active {
+  transform: scale(1.15);
+  background: var(--color-primary-dark);
+}
+
+.team-swiper .swiper-pagination {
+  bottom: -2rem !important;
+}
+
 .events-swiper .swiper-pagination-bullet {
   width: 0.5rem;
   height: 0.5rem;
@@ -229,6 +314,15 @@
 
   .events-swiper article,
   .events-swiper img {
+    transition-duration: 0ms !important;
+  }
+
+  .team-swiper .swiper-wrapper {
+    transition-duration: 0ms !important;
+  }
+
+  .team-swiper article,
+  .team-swiper img {
     transition-duration: 0ms !important;
   }
 }

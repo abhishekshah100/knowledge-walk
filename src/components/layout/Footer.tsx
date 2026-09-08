@@ -19,7 +19,7 @@ export function Footer({ navigation }: FooterProps) {
   const { footer } = navigation;
 
   return (
-    <footer className="border-t-2 border-primary/35 bg-surface-muted" aria-label="Site footer">
+    <footer className="border-t-2 border-primary/35 bg-footer-bg" aria-label="Site footer">
       <Container className="py-12 sm:py-16">
         <div className="grid gap-9 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 lg:items-start lg:gap-6">
           <div className="lg:col-span-2 lg:pr-10">
@@ -30,7 +30,7 @@ export function Footer({ navigation }: FooterProps) {
                 width={navigation.logo.width ?? 40}
                 height={navigation.logo.height ?? 40}
                 sizes="40px"
-                className="rounded-lg"
+                className="h-10 w-auto rounded-lg object-contain"
               />
               <span className="text-lg font-bold text-text-primary">{navigation.brandName}</span>
             </Link>
@@ -44,14 +44,14 @@ export function Footer({ navigation }: FooterProps) {
                   rel="noopener noreferrer"
                   aria-label={social.platform}
                   title={social.platform}
-                  className="group flex h-10 w-10 items-center justify-center rounded-xl border border-border/80 bg-surface p-2.5 shadow-sm transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="group flex h-10 w-10 items-center justify-center rounded-xl border border-border/80 bg-surface p-2 shadow-sm transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   <Image
                     src={social.image.src}
                     alt="Social"
                     width={social.image.width ?? 24}
                     height={social.image.height ?? 24}
-                    className="h-6 w-6 object-contain transition-transform duration-200 group-hover:scale-110"
+                    className="h-6 w-6 max-w-none shrink-0 object-contain transition-transform duration-200 group-hover:scale-110"
                   />
                 </Link>
               ))}

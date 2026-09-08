@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { ContactHeroSection } from "@/components/contact/ContactHeroSection";
 import { HelpAndFaqSection } from "@/components/contact/HelpAndFaqSection";
 import { OfficeLocationSection } from "@/components/contact/OfficeLocationSection";
@@ -18,6 +19,12 @@ import { useHomePageData } from "@/hooks/useHomePageData";
 export default function ContactPage() {
   const { data: homeData, isLoading: isHomeLoading, error: homeError } = useHomePageData();
   const { data: contactData, isLoading: isContactLoading, error: contactError } = useContactPageData();
+  const [selectedProgram, setSelectedProgram] = useState<string | undefined>(undefined);
+
+  function handleTopicSelect(programOption: string) {
+    setSelectedProgram(programOption);
+    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   const isLoading = isHomeLoading || isContactLoading;
   const error = homeError ?? contactError;
@@ -52,9 +59,9 @@ export default function ContactPage() {
     <>
       <Header navigation={homeData.navigation} />
       <main className="flex-1">
-        <ContactHeroSection contactHero={contactData.contactHero} />
+        <ContactHeroSection contactHero={contactData.contactHero} initialProgram={selectedProgram} />
         <OfficeLocationSection officeLocation={contactData.officeLocation} />
-        <HelpAndFaqSection howCanWeHelp={contactData.howCanWeHelp} faq={contactData.faq} />
+        <HelpAndFaqSection howCanWeHelp={contactData.howCanWeHelp} faq={contactData.faq} onTopicSelect={handleTopicSelect} />
       </main>
       <Footer navigation={homeData.navigation} />
     </>

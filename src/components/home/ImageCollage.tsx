@@ -3,6 +3,8 @@ import type { ImageAsset } from "@/types/site-content.types";
 
 interface ImageCollageProps {
   images: ImageAsset[];
+  /** Set when this collage renders above the fold (e.g. a page's hero area). */
+  priority?: boolean;
 }
 
 /**
@@ -10,7 +12,7 @@ interface ImageCollageProps {
  * the right. Renders whichever of the three slots are present in
  * `images`, in order.
  */
-export function ImageCollage({ images }: ImageCollageProps) {
+export function ImageCollage({ images, priority = false }: ImageCollageProps) {
   const [first, second, third] = images;
 
   return (
@@ -24,6 +26,7 @@ export function ImageCollage({ images }: ImageCollageProps) {
               width={first.width ?? 800}
               height={first.height ?? 600}
               sizes="240px"
+              priority={priority}
               className="aspect-[4/3] w-full object-cover"
             />
           </div>
@@ -36,6 +39,7 @@ export function ImageCollage({ images }: ImageCollageProps) {
               width={second.width ?? 800}
               height={second.height ?? 600}
               sizes="240px"
+              priority={priority}
               className="aspect-[4/3] w-full object-cover"
             />
           </div>
@@ -49,6 +53,7 @@ export function ImageCollage({ images }: ImageCollageProps) {
             width={third.width ?? 700}
             height={third.height ?? 900}
             sizes="240px"
+            priority={priority}
             className="h-full w-full object-cover"
           />
         </div>
