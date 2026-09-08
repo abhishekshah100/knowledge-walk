@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EnquiryProvider } from "@/components/enquiry/EnquiryProvider";
+import { FloatingContactButtons } from "@/components/layout/FloatingContactButtons";
 import { HomeDataProvider } from "@/components/layout/HomeDataProvider";
 import { siteMetaData } from "@/data/home.data";
 import "./globals.css";
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <EnquiryProvider>
           <HomeDataProvider>{children}</HomeDataProvider>
+          <FloatingContactButtons />
         </EnquiryProvider>
       </body>
     </html>
