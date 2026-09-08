@@ -39,19 +39,4 @@ export const mediaData: MediaContent = {
       },
     ],
   },
-  partners: {
-    heading: "Together We Go Further",
-    description:
-      "We partner with educational institutions, organizations and community leaders to build an ecosystem that empowers young India.",
-    logos: [
-      { name: "Pragati Foundation", logo: { src: "/images/partners/pragati-foundation.svg", alt: "Pragati Foundation" } },
-      { name: "Naya Disha", logo: { src: "/images/partners/naya-disha.svg", alt: "Naya Disha" } },
-      { name: "Samvaad Collective", logo: { src: "/images/partners/samvaad-collective.svg", alt: "Samvaad Collective" } },
-      { name: "VidyaSetu Fellowship", logo: { src: "/images/partners/vidyasetu-fellowship.svg", alt: "VidyaSetu Fellowship" } },
-      { name: "Uddhar Fellowship", logo: { src: "/images/partners/uddhar-fellowship.svg", alt: "Uddhar Fellowship" } },
-      { name: "Samanvay Institute", logo: { src: "/images/partners/samanvay-institute.svg", alt: "Samanvay Institute" } },
-      { name: "Yuva Shakti Network", logo: { src: "/images/partners/yuva-shakti-network.svg", alt: "Yuva Shakti Network" } },
-      { name: "Bharat Heritage Forum", logo: { src: "/images/partners/bharat-heritage-forum.svg", alt: "Bharat Heritage Forum" } },
-    ],
-  },
 };

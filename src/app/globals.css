@@ -90,148 +90,36 @@
 }
 
 /* Swiper supplies the behavior; these rules only align its controls with the
-   site visual system and prevent their layout from shifting card content. */
-.events-swiper {
-  --swiper-pagination-color: var(--color-primary);
-  overflow: visible;
-}
-
-.events-swiper .swiper-wrapper {
-  align-items: stretch;
-}
-
-.events-swiper .swiper-slide {
-  display: flex;
-  height: auto;
-}
-
-.events-carousel-control {
-  position: absolute;
-  top: 45%;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 9999px;
-  background: var(--color-surface);
-  color: var(--color-primary-dark);
-  box-shadow: 0 5px 14px rgb(15 41 66 / 12%);
-  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, transform 180ms ease;
-}
-
-.events-carousel-control:hover {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  box-shadow: 0 7px 16px rgb(14 165 233 / 28%);
-  transform: translateY(-1px);
-}
-
-.events-carousel-prev {
-  left: 0;
-}
-
-.events-carousel-next {
-  right: 0;
-}
-
-.events-carousel-control.swiper-button-disabled {
-  border-color: var(--color-border);
-  background: var(--color-surface-muted);
-  color: var(--color-text-secondary);
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.voices-swiper {
-  --swiper-pagination-color: var(--color-primary);
-  overflow: visible;
-}
-
-.voices-swiper .swiper-wrapper {
-  align-items: stretch;
-}
-
-.voices-swiper .swiper-slide {
-  display: flex;
-  height: auto;
-}
-
-.voices-carousel-control {
-  position: absolute;
-  top: 43%;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 9999px;
-  background: var(--color-surface);
-  color: var(--color-primary-dark);
-  box-shadow: 0 5px 14px rgb(15 41 66 / 12%);
-  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
-}
-
-.voices-carousel-control:hover {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  box-shadow: 0 7px 16px rgb(14 165 233 / 28%);
-}
-
-.voices-carousel-prev { left: 0; }
-.voices-carousel-next { right: 0; }
-
-.voices-carousel-control.swiper-button-disabled {
-  background: var(--color-surface-muted);
-  color: var(--color-text-secondary);
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.voices-carousel-control.swiper-button-lock {
-  display: inline-flex !important;
-}
-
-.voices-swiper .swiper-pagination-bullet {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin: 0 0.3rem !important;
-  background: var(--color-primary-light);
-  opacity: 1;
-}
-
-.voices-swiper .swiper-pagination-bullet-active {
-  transform: scale(1.15);
-  background: var(--color-primary-dark);
-}
-
-.voices-swiper .swiper-pagination {
-  bottom: -2rem !important;
-}
-
+   site visual system and prevent their layout from shifting card content.
+   Shared by every carousel instance (Events, Voices, Team) — the handful
+   of declarations that actually differ between them (arrow vertical
+   position, the events-only hover lift, which ones needed the
+   `swiper-button-lock` fix) stay split out in their own rules below
+   instead of being duplicated across three near-identical blocks. */
+.events-swiper,
+.voices-swiper,
 .team-swiper {
   --swiper-pagination-color: var(--color-primary);
   overflow: visible;
 }
 
+.events-swiper .swiper-wrapper,
+.voices-swiper .swiper-wrapper,
 .team-swiper .swiper-wrapper {
   align-items: stretch;
 }
 
+.events-swiper .swiper-slide,
+.voices-swiper .swiper-slide,
 .team-swiper .swiper-slide {
   display: flex;
   height: auto;
 }
 
+.events-carousel-control,
+.voices-carousel-control,
 .team-carousel-control {
   position: absolute;
-  top: 43%;
   z-index: 10;
   display: inline-flex;
   align-items: center;
@@ -246,6 +134,18 @@
   transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
 }
 
+.events-carousel-control {
+  top: 45%;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.voices-carousel-control,
+.team-carousel-control {
+  top: 43%;
+}
+
+.events-carousel-control:hover,
+.voices-carousel-control:hover,
 .team-carousel-control:hover {
   border-color: var(--color-primary);
   background: var(--color-primary);
@@ -253,9 +153,24 @@
   box-shadow: 0 7px 16px rgb(14 165 233 / 28%);
 }
 
-.team-carousel-prev { left: 0; }
-.team-carousel-next { right: 0; }
+.events-carousel-control:hover {
+  transform: translateY(-1px);
+}
 
+.events-carousel-prev,
+.voices-carousel-prev,
+.team-carousel-prev {
+  left: 0;
+}
+
+.events-carousel-next,
+.voices-carousel-next,
+.team-carousel-next {
+  right: 0;
+}
+
+.events-carousel-control.swiper-button-disabled,
+.voices-carousel-control.swiper-button-disabled,
 .team-carousel-control.swiper-button-disabled {
   background: var(--color-surface-muted);
   color: var(--color-text-secondary);
@@ -263,10 +178,17 @@
   pointer-events: none;
 }
 
+.events-carousel-control.swiper-button-disabled {
+  border-color: var(--color-border);
+}
+
+.voices-carousel-control.swiper-button-lock,
 .team-carousel-control.swiper-button-lock {
   display: inline-flex !important;
 }
 
+.events-swiper .swiper-pagination-bullet,
+.voices-swiper .swiper-pagination-bullet,
 .team-swiper .swiper-pagination-bullet {
   width: 0.5rem;
   height: 0.5rem;
@@ -275,29 +197,16 @@
   opacity: 1;
 }
 
+.events-swiper .swiper-pagination-bullet-active,
+.voices-swiper .swiper-pagination-bullet-active,
 .team-swiper .swiper-pagination-bullet-active {
   transform: scale(1.15);
   background: var(--color-primary-dark);
 }
 
+.events-swiper .swiper-pagination,
+.voices-swiper .swiper-pagination,
 .team-swiper .swiper-pagination {
-  bottom: -2rem !important;
-}
-
-.events-swiper .swiper-pagination-bullet {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin: 0 0.3rem !important;
-  background: var(--color-primary-light);
-  opacity: 1;
-}
-
-.events-swiper .swiper-pagination-bullet-active {
-  transform: scale(1.15);
-  background: var(--color-primary-dark);
-}
-
-.events-swiper .swiper-pagination {
   bottom: -2rem !important;
 }
 
@@ -308,19 +217,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .events-swiper .swiper-wrapper {
-    transition-duration: 0ms !important;
-  }
-
-  .events-swiper article,
-  .events-swiper img {
-    transition-duration: 0ms !important;
-  }
-
+  .events-swiper .swiper-wrapper,
   .team-swiper .swiper-wrapper {
     transition-duration: 0ms !important;
   }
 
+  .events-swiper article,
+  .events-swiper img,
   .team-swiper article,
   .team-swiper img {
     transition-duration: 0ms !important;

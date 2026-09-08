@@ -1,7 +1,8 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import type { ApiResponse, HomePageData } from "@/types/site-content.types";
+import { createContext, useContext, type ReactNode } from "react";
+import { useJsonFetch } from "@/hooks/useJsonFetch";
+import type { HomePageData } from "@/types/site-content.types";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
@@ -25,40 +26,7 @@ const HomeDataContext = createContext<HomeDataContextValue | null>(null);
  * page independently rendering (and refetching for) its own copies.
  */
 export function HomeDataProvider({ children }: Readonly<{ children: ReactNode }>) {
-  const [data, setData] = useState<HomePageData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    async function loadHomePageData() {
-      setIsLoading(true);
-      setError(null);
-
-      try {
-        const response = await fetch("/api/home", { signal: controller.signal });
-        const result = (await response.json()) as ApiResponse<HomePageData>;
-
-        if (!result.success) {
-          throw new Error(result.error);
-        }
-
-        setData(result.data);
-      } catch (err) {
-        if (err instanceof DOMException && err.name === "AbortError") {
-          return;
-        }
-        setError(err instanceof Error ? err.message : "Something went wrong.");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    loadHomePageData();
-
-    return () => controller.abort();
-  }, []);
+  const { data, isLoading, error } = useJsonFetch<HomePageData>("/api/home");
 
   return (
     <HomeDataContext.Provider value={{ data, isLoading, error }}>

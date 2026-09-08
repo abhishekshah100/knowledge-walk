@@ -265,21 +265,11 @@ export interface GalleryItem {
   thumbnail: ImageAsset;
 }
 
-export interface PartnerLogo {
-  name: string;
-  logo: ImageAsset;
-}
-
 export interface MediaContent {
   gallery: {
     heading: string;
     subtitle: string;
     items: GalleryItem[];
-  };
-  partners: {
-    heading: string;
-    description: string;
-    logos: PartnerLogo[];
   };
 }
 
@@ -442,13 +432,10 @@ export interface AboutStoryContent {
 // About page — "Our Values"
 // ---------------------------------------------------------------------------
 
-export type ValueAccent = "blue" | "teal" | "indigo" | "purple" | "gold";
-
 export interface ValueItem {
   icon: ImageAsset;
   title: string;
   description: string;
-  accent: ValueAccent;
 }
 
 export interface OurValuesContent {

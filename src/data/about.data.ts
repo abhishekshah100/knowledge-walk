@@ -75,31 +75,26 @@ export const ourValuesData: OurValuesContent = {
       icon: { src: `${ICONS_DIR}/value-knowledge.webp`, alt: "", width: 64, height: 64 },
       title: "Knowledge",
       description: "Stay curious. Think deeply.",
-      accent: "blue",
     },
     {
       icon: { src: `${ICONS_DIR}/value-integrity.webp`, alt: "", width: 64, height: 64 },
       title: "Integrity",
       description: "Choose what is right.",
-      accent: "teal",
     },
     {
       icon: { src: `${ICONS_DIR}/value-service.webp`, alt: "", width: 64, height: 64 },
       title: "Service",
       description: "Create value for others.",
-      accent: "indigo",
     },
     {
       icon: { src: `${ICONS_DIR}/value-inclusion.webp`, alt: "", width: 64, height: 64 },
       title: "Inclusion",
       description: "Make every voice count.",
-      accent: "purple",
     },
     {
       icon: { src: `${ICONS_DIR}/value-heritage.webp`, alt: "", width: 64, height: 64 },
       title: "Heritage",
       description: "Stay connected to our roots.",
-      accent: "gold",
     },
   ],
 };

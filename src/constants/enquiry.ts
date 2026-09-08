@@ -65,13 +65,3 @@ export const INITIAL_ENQUIRY_VALUES: EnquiryFormValues = {
 };
 
 export const ENQUIRY_DEFAULT_COUNTRY = "IN";
-
-export const ENQUIRY_EMAIL_TEMPLATE_KEYS = {
-  fullName: "full_name",
-  email: "email_address",
-  phone: "phone_number",
-  program: "program_interest",
-  message: "message",
-  submittedAt: "submission_date_time",
-  pageUrl: "page_url",
-} as const;
