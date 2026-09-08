@@ -46,6 +46,7 @@ export function EnquiryForm({ onSuccess, initialProgram }: EnquiryFormProps) {
   const [isCountryMenuOpen, setIsCountryMenuOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const countryMenuRef = useRef<HTMLDivElement>(null);
   const successTimerRef = useRef<number | null>(null);
   const [lastAppliedProgram, setLastAppliedProgram] = useState(initialProgram);
 
@@ -62,6 +63,21 @@ export function EnquiryForm({ onSuccess, initialProgram }: EnquiryFormProps) {
 
   useEffect(() => {
     if (isCountryMenuOpen) searchInputRef.current?.focus();
+  }, [isCountryMenuOpen]);
+
+  // Close the country dropdown on any click/tap outside it — clicking
+  // elsewhere in the form (or the page) shouldn't leave it hanging open.
+  useEffect(() => {
+    if (!isCountryMenuOpen) return;
+
+    function handleOutsideClick(event: MouseEvent) {
+      if (!countryMenuRef.current?.contains(event.target as Node)) {
+        setIsCountryMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isCountryMenuOpen]);
 
   useEffect(() => () => {
@@ -147,7 +163,7 @@ export function EnquiryForm({ onSuccess, initialProgram }: EnquiryFormProps) {
         <div>
           <label htmlFor={fieldId("phone")} className="text-sm font-semibold text-text-primary">{ENQUIRY_CONTENT.fields.phone.label}</label>
           <div className="relative mt-1.5 flex min-h-12 rounded-lg border border-border bg-surface/90 focus-within:border-primary focus-within:ring-[3px] focus-within:ring-primary/35">
-            <div className="relative shrink-0 border-r border-border">
+            <div ref={countryMenuRef} className="relative shrink-0 border-r border-border">
               <button type="button" onClick={() => setIsCountryMenuOpen((open) => !open)} disabled={isSending || isSuccess} aria-expanded={isCountryMenuOpen} aria-haspopup="listbox" className="flex min-h-12 items-center gap-1 px-3 text-sm font-semibold text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <span aria-hidden="true">{countryFlag(country)}</span>
                 <span>+{getCountryCallingCode(country)}</span>

@@ -1,8 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { Icon } from "@/components/ui/Icon";
 import type { AboutHeroContent } from "@/types/site-content.types";
 
 interface AboutHeroSectionProps {
@@ -34,13 +32,13 @@ export function AboutHeroSection({ hero }: AboutHeroSectionProps) {
               >
                 {hero.primaryCta.label}
               </Button>
-              <Link
+              <Button
                 href={hero.secondaryCta.href}
-                className="inline-flex min-h-9 items-center gap-1 rounded-full border-2 border-accent-purple px-3 py-2 text-xs font-semibold whitespace-nowrap text-accent-purple transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 sm:min-h-11 sm:gap-1.5 sm:px-5 sm:py-2.5 sm:text-sm"
+                variant="outline"
+                className="!min-h-9 !px-3 !py-2 !text-xs sm:!min-h-11 sm:!px-5 sm:!py-2.5 sm:!text-sm"
               >
                 {hero.secondaryCta.label}
-                <Icon name="chevron-right" className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-              </Link>
+              </Button>
             </div>
           </div>
 
