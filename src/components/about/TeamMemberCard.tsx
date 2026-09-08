@@ -14,7 +14,7 @@ interface TeamMemberCardProps {
  */
 export function TeamMemberCard({ member }: TeamMemberCardProps) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-shadow hover:shadow-md">
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <Image
           src={member.photo.src}

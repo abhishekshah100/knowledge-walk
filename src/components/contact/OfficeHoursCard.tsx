@@ -12,7 +12,7 @@ interface OfficeHoursCardProps {
  */
 export function OfficeHoursCard({ officeHours }: OfficeHoursCardProps) {
   return (
-    <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-6 text-center shadow-sm transition-shadow hover:shadow-md sm:items-start sm:text-left">
+    <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-md sm:items-start sm:text-left">
       <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
         <Image
           src={officeHours.icon.src}

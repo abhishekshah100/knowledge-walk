@@ -7,7 +7,7 @@ interface HelpTopicCardProps {
 }
 
 const BASE_CLASSES =
-  "flex h-full w-full flex-col items-center gap-4 rounded-2xl border border-border bg-surface p-6 text-center shadow-sm transition-colors sm:flex-row sm:items-start sm:text-left";
+  "flex h-full w-full flex-col items-center gap-4 rounded-2xl border border-border bg-surface p-6 text-center shadow-sm sm:flex-row sm:items-start sm:text-left";
 
 /**
  * One "How Can We Help?" quick-topic tile. When `onSelect` is provided
@@ -41,7 +41,7 @@ export function HelpTopicCard({ topic, onSelect }: HelpTopicCardProps) {
         type="button"
         onClick={onSelect}
         aria-label={`${topic.title} — preselect this in the enquiry form below`}
-        className={`${BASE_CLASSES} cursor-pointer hover:border-primary/40 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
+        className={`${BASE_CLASSES} cursor-pointer transition-all hover:-translate-y-1 hover:border-primary/40 hover:bg-primary/5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
       >
         {content}
       </button>

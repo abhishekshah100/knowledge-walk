@@ -14,7 +14,7 @@ interface WhatsAppCardProps {
  */
 export function WhatsAppCard({ channel }: WhatsAppCardProps) {
   return (
-    <div className="flex flex-col items-stretch gap-4 rounded-2xl border border-border bg-surface p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col items-stretch gap-4 rounded-2xl border border-border bg-surface p-5 shadow-sm transition-all hover:-translate-y-1 hover:border-whatsapp hover:shadow-md sm:flex-row sm:items-center sm:justify-between">
       <div className="flex w-full flex-col items-center gap-3 text-center sm:w-auto sm:flex-row sm:items-center sm:text-left">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-whatsapp/10">
           <Image src={channel.icon.src} alt={channel.icon.alt} width={24} height={24} sizes="24px" className="h-6 w-6 object-contain" />

@@ -15,7 +15,7 @@ interface ValueCardProps {
  */
 export function ValueCard({ value }: ValueCardProps) {
   return (
-    <div className="flex h-full flex-col items-center rounded-2xl border border-border bg-surface p-5 text-center shadow-sm transition-shadow hover:shadow-md">
+    <div className="flex h-full flex-col items-center rounded-2xl border border-border bg-surface p-5 text-center shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
       <Image
         src={value.icon.src}
         alt=""
