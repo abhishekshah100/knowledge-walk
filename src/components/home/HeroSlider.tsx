@@ -150,12 +150,12 @@ export function HeroSlider({ hero }: HeroSliderProps) {
                     aria-hidden={index !== activeIndex}
                     inert={index !== activeIndex}
                   >
-                    <div className="flex flex-col gap-4 px-5 py-8 sm:px-8 sm:py-10 lg:px-14 lg:py-16 md:max-w-xl md:gap-4 md:py-0 md:pr-10 md:pl-16 lg:pl-28">
+                    <div className="flex flex-col gap-4 px-5 py-8 sm:px-8 sm:py-10 md:max-w-xl md:gap-3 md:py-8 md:pr-10 md:pl-16 lg:px-14 lg:pl-28">
                       <span className="relative w-fit overflow-hidden rounded-full border border-white/80 bg-white/75 px-4 py-2 text-sm font-semibold text-primary shadow-sm ring-1 ring-primary/10 backdrop-blur-xl before:pointer-events-none before:absolute before:inset-x-3 before:top-0 before:h-px before:bg-white/90">
                         {slide.eyebrow}
                       </span>
-                      <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl lg:text-6xl lg:leading-[1.08]">{slide.heading}</h1>
-                      <p className="text-sm sm:text-base leading-6 sm:leading-7 text-text-primary/85 max-w-xl">{slide.description}</p>
+                      <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl lg:leading-[1.08]">{slide.heading}</h1>
+                      <p className="text-sm sm:text-base leading-6 sm:leading-7 text-text-primary/85 max-w-xl lg:text-sm lg:leading-5">{slide.description}</p>
                       <div className="flex flex-col sm:flex-row gap-3 pt-4 sm:pt-2">
                         <Button href={slide.primaryCta.href} className="w-full sm:w-auto text-sm">
                           {slide.primaryCta.label}

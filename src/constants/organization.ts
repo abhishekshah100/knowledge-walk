@@ -14,6 +14,9 @@ export const ORG_EMAIL_HREF = `mailto:${ORG_EMAIL}`;
 export const ORG_PHONE_E164 = "+917678205663";
 export const ORG_PHONE_DISPLAY = `${ORG_PHONE_E164.slice(0, 3)} ${ORG_PHONE_E164.slice(3)}`;
 export const ORG_PHONE_HREF = `tel:${ORG_PHONE_E164}`;
+export const ORG_PHONE_SECONDARY_E164 = "+919447000707";
+export const ORG_PHONE_SECONDARY_DISPLAY = "9447000707";
+export const ORG_PHONE_SECONDARY_HREF = `tel:${ORG_PHONE_SECONDARY_E164}`;
 /** Prefills the chat's message box — the visitor still has to hit send themselves. */
 const ORG_WHATSAPP_MESSAGE = "Hi Knowledge Walk, I'd like to know more about your programs.";
 export const ORG_WHATSAPP_HREF = `https://wa.me/${ORG_PHONE_E164.slice(1)}?text=${encodeURIComponent(ORG_WHATSAPP_MESSAGE)}`;

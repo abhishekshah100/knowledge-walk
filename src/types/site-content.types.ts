@@ -290,8 +290,7 @@ export interface ContactMethod {
   accent: ContactAccent;
   title: string;
   description: string;
-  value: string;
-  href: string;
+  links: LinkItem[];
 }
 
 export interface ContactChannel {
@@ -320,7 +319,6 @@ export interface ContactHeroContent {
   description: string;
   methods: ContactMethod[];
   whatsapp: ContactChannel;
-  officeHours: OfficeHours;
   form: ContactFormContent;
 }
 

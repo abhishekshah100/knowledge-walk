@@ -19,11 +19,11 @@ const HOVER_BORDER: Record<ContactAccent, string> = {
   purple: "hover:border-accent-purple",
 };
 
-/** One "Email Us / Call Us" channel card. */
+/** One contact channel card, which can include one or more contact links. */
 export function ContactMethodCard({ method }: ContactMethodCardProps) {
   return (
     <div
-      className={`flex h-full flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md sm:items-start sm:text-left ${HOVER_BORDER[method.accent]}`}
+      className={`flex h-full flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-4 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md sm:items-start sm:p-5 sm:text-left lg:p-4 ${HOVER_BORDER[method.accent]}`}
     >
       <span className={`flex h-12 w-12 items-center justify-center rounded-xl ${ICON_BG[method.accent]}`}>
         <Image src={method.icon.src} alt={method.icon.alt} width={28} height={28} sizes="28px" className="h-7 w-7 object-contain" />
@@ -32,12 +32,19 @@ export function ContactMethodCard({ method }: ContactMethodCardProps) {
         <h3 className="text-base font-bold text-text-primary">{method.title}</h3>
         <p className="text-sm text-text-secondary">{method.description}</p>
       </div>
-      <Link
-        href={method.href}
-        className="-m-1 w-fit max-w-full rounded-md p-1 text-sm font-semibold break-all text-primary transition-colors hover:text-primary-dark hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-      >
-        {method.value}
-      </Link>
+      <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 sm:justify-start">
+        {method.links.map((link, index) => (
+          <span key={link.href} className="whitespace-nowrap">
+            {index > 0 ? <span aria-hidden="true">, </span> : null}
+            <Link
+              href={link.href}
+              className="-m-1 w-fit max-w-full rounded-md p-1 text-xs font-semibold text-primary transition-colors hover:text-primary-dark hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:text-sm lg:text-xs"
+            >
+              {link.label}
+            </Link>
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

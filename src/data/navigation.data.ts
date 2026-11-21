@@ -5,6 +5,8 @@ import {
   ORG_OFFICE_HOURS_INLINE,
   ORG_PHONE_DISPLAY,
   ORG_PHONE_HREF,
+  ORG_PHONE_SECONDARY_DISPLAY,
+  ORG_PHONE_SECONDARY_HREF,
 } from "@/constants/organization";
 import type { NavigationContent } from "@/types/site-content.types";
 
@@ -66,6 +68,7 @@ export const navigationData: NavigationContent = {
         links: [
           { label: ORG_EMAIL, href: ORG_EMAIL_HREF },
           { label: ORG_PHONE_DISPLAY, href: ORG_PHONE_HREF },
+          { label: ORG_PHONE_SECONDARY_DISPLAY, href: ORG_PHONE_SECONDARY_HREF },
           { label: ORG_ADDRESS_SHORT, href: "#" },
           { label: ORG_OFFICE_HOURS_INLINE, href: "#" },
         ],

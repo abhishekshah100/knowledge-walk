@@ -24,12 +24,9 @@ const SECTION_PADDING =
  * the site nav, so this call reuses that same cache entry instead of
  * refetching.
  *
- * `UpcomingEventsSection` and `VoicesOfChangeSection` use Swiper's `A11y`/
- * `Autoplay` modules, which read `new Date()` as soon as they mount — a
- * non-deterministic value Next.js won't allow inside the static prerender.
- * Wrapping them in `<Suspense>` excludes just those two sections from the
- * static shell (per https://nextjs.org/docs/messages/blocking-prerender-current-time-client)
- * instead of forcing the whole page to render dynamically on every request.
+ * Swiper can read the current time while prerendering these Client Components.
+ * Keep both carousels behind `<Suspense>` so only their content is deferred,
+ * rather than forcing the whole page to render dynamically on every request.
  */
 export default async function HomePage() {
   const { home, events, stories, media } = await getHomePageData();
@@ -38,7 +35,9 @@ export default async function HomePage() {
     <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
       <HeroSlider hero={home.hero} />
       <StatsSection stats={home.stats} />
-      <VoicesOfChangeSection stories={stories} />
+      <Suspense fallback={<LoadingSkeleton className={`h-[360px] w-full ${SECTION_PADDING}`} />}>
+        <VoicesOfChangeSection stories={stories} />
+      </Suspense>
       <PillarProjectsSection pillarProjects={home.pillarProjects} />
       {/* <BuildingLeadersSection buildingLeaders={home.buildingLeaders} /> */}
       <MissionIasSection missionIas={home.missionIas} />

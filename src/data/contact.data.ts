@@ -6,6 +6,8 @@ import {
   ORG_OFFICE_HOURS_LINES,
   ORG_PHONE_DISPLAY,
   ORG_PHONE_HREF,
+  ORG_PHONE_SECONDARY_DISPLAY,
+  ORG_PHONE_SECONDARY_HREF,
   ORG_WHATSAPP_HREF,
 } from "@/constants/organization";
 import type { ContactHeroContent, FaqContent, HowCanWeHelpContent, OfficeLocationContent } from "@/types/site-content.types";
@@ -23,16 +25,17 @@ export const contactHeroData: ContactHeroContent = {
       accent: "primary",
       title: "Email Us",
       description: "Reach out anytime at",
-      value: ORG_EMAIL,
-      href: ORG_EMAIL_HREF,
+      links: [{ label: ORG_EMAIL, href: ORG_EMAIL_HREF }],
     },
     {
       icon: { src: `${ICONS_DIR}/phone.webp`, alt: "Phone icon", width: 128, height: 128 },
       accent: "purple",
       title: "Call Us",
       description: "Speak with our team",
-      value: ORG_PHONE_DISPLAY,
-      href: ORG_PHONE_HREF,
+      links: [
+        { label: ORG_PHONE_DISPLAY, href: ORG_PHONE_HREF },
+        { label: ORG_PHONE_SECONDARY_DISPLAY, href: ORG_PHONE_SECONDARY_HREF },
+      ],
     },
   ],
   whatsapp: {
@@ -42,11 +45,6 @@ export const contactHeroData: ContactHeroContent = {
     description: "Chat with our team for quick support",
     actionLabel: "Chat on WhatsApp",
     actionHref: ORG_WHATSAPP_HREF,
-  },
-  officeHours: {
-    icon: { src: `${ICONS_DIR}/clock.webp`, alt: "Office hours icon", width: 128, height: 128 },
-    title: "Office Hours",
-    lines: ORG_OFFICE_HOURS_LINES,
   },
   form: {
     heading: "Send Us a Message",

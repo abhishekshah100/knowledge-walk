@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -79,24 +80,49 @@ export function Footer({ navigation }: FooterProps) {
               .filter((g) => g.title !== "Resources")
               .map((group) => {
                 const isContactGroup = group.title === "Contact";
+                const phoneLinks = isContactGroup
+                  ? group.links.filter((link) => link.href.startsWith("tel:"))
+                  : [];
 
                 return (
                   <div key={group.title} className="flex min-w-[9rem] flex-col border-t border-border/80 pt-5 sm:border-t-0 sm:pt-0">
                     <h2 className="text-sm font-bold tracking-wide text-text-primary uppercase">{group.title}</h2>
                     <div className="mt-2.5 h-0.5 w-8 rounded-full bg-primary" aria-hidden="true" />
                     <ul className="mt-5 space-y-3">
-                      {group.links.map((link) => (
-                        <li key={link.label}>
-                          <Link href={link.href} className={`group inline-flex w-full min-w-0 text-sm leading-5 text-text-secondary transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isContactGroup ? "items-start gap-2.5" : "relative items-center"}`}>
-                            {isContactGroup ? (
-                              <Icon name={contactIcon(link)} className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      {group.links.map((link) => {
+                        const isPhoneLink = isContactGroup && link.href.startsWith("tel:");
+
+                        if (isPhoneLink && link !== phoneLinks[0]) return null;
+
+                        return (
+                          <li key={isPhoneLink ? "phone-links" : link.label}>
+                            {isPhoneLink ? (
+                              <div className="group inline-flex w-full min-w-0 items-start gap-2.5 text-sm leading-5 text-text-secondary">
+                                <Icon name="phone" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                                <span className="min-w-0 break-words">
+                                  {phoneLinks.map((phoneLink, index) => (
+                                    <Fragment key={phoneLink.href}>
+                                      {index > 0 ? <span aria-hidden="true">, </span> : null}
+                                      <Link href={phoneLink.href} className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                                        {phoneLink.label}
+                                      </Link>
+                                    </Fragment>
+                                  ))}
+                                </span>
+                              </div>
                             ) : (
-                              <Icon name="chevron-right" className="absolute -left-4 h-3.5 w-3.5 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
+                              <Link href={link.href} className={`group inline-flex w-full min-w-0 text-sm leading-5 text-text-secondary transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isContactGroup ? "items-start gap-2.5" : "relative items-center"}`}>
+                                {isContactGroup ? (
+                                  <Icon name={contactIcon(link)} className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                                ) : (
+                                  <Icon name="chevron-right" className="absolute -left-4 h-3.5 w-3.5 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
+                                )}
+                                <span className="min-w-0 break-words">{link.label}</span>
+                              </Link>
                             )}
-                            <span className="min-w-0 break-words">{link.label}</span>
-                          </Link>
-                        </li>
-                      ))}
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 );

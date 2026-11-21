@@ -1,5 +1,4 @@
 import { ContactMethodCard } from "./ContactMethodCard";
-import { OfficeHoursCard } from "./OfficeHoursCard";
 import { WhatsAppCard } from "./WhatsAppCard";
 import type { ContactHeroContent } from "@/types/site-content.types";
 
@@ -7,7 +6,7 @@ interface ConnectWithUsPanelProps {
   contactHero: ContactHeroContent;
 }
 
-/** Left column: heading, channel cards, WhatsApp and office hours. */
+/** Left column: heading, contact channels and WhatsApp. */
 export function ConnectWithUsPanel({ contactHero }: ConnectWithUsPanelProps) {
   return (
     <div className="flex flex-col gap-6">
@@ -19,11 +18,10 @@ export function ConnectWithUsPanel({ contactHero }: ConnectWithUsPanelProps) {
         <p className="max-w-[540px] text-base leading-[1.6] text-text-secondary">{contactHero.description}</p>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {contactHero.methods.map((method) => (
           <ContactMethodCard key={method.title} method={method} />
         ))}
-        <OfficeHoursCard officeHours={contactHero.officeHours} />
       </div>
 
       <WhatsAppCard channel={contactHero.whatsapp} />
