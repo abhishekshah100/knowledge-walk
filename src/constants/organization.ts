@@ -7,11 +7,11 @@
  * once.
  */
 
-export const ORG_EMAIL = "support@knowledgewalk.org";
+export const ORG_EMAIL = "knowledgewalk.india@gmail.com";
 export const ORG_EMAIL_HREF = `mailto:${ORG_EMAIL}`;
 
 /** E.164 format — the one place this number is hand-written. */
-export const ORG_PHONE_E164 = "+918826314093";
+export const ORG_PHONE_E164 = "+917678205663";
 export const ORG_PHONE_DISPLAY = `${ORG_PHONE_E164.slice(0, 3)} ${ORG_PHONE_E164.slice(3)}`;
 export const ORG_PHONE_HREF = `tel:${ORG_PHONE_E164}`;
 /** Prefills the chat's message box — the visitor still has to hit send themselves. */
@@ -24,6 +24,6 @@ export const ORG_OFFICE_HOURS_INLINE = ORG_OFFICE_HOURS_LINES.join(", ");
 /** Precise, geocode-friendly form of the real Gurugram office address — feeds the map embed and "Get Directions" link. */
 export const ORG_ADDRESS_GEOCODE = "ILABS Centre, Plot No. 404-405, Udyog Vihar Phase 3, Sector 20, Gurugram, Haryana 122016, India";
 /** Same address, split for on-page display (office info card). */
-export const ORG_ADDRESS_LINES = ["ILABS Centre, 6th Floor", "Plot No. 404–405, Udyog Vihar, Phase III", "Gurugram, Haryana 122016, India"];
+export const ORG_ADDRESS_LINES = ["New Delhi - 110017", "India", ""];
 /** Short form for compact spaces, e.g. the footer. */
-export const ORG_ADDRESS_SHORT = "Gurugram, Haryana, India";
+export const ORG_ADDRESS_SHORT = "Delhi, India";

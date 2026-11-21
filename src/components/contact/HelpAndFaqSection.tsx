@@ -25,7 +25,7 @@ export function HelpAndFaqSection({ howCanWeHelp, faq, onTopicSelect }: HelpAndF
   return (
     <section className="relative">
       <Container className="pt-[var(--space-section-mobile)] pb-[var(--space-section-mobile)] md:pt-[var(--space-section-tablet)] md:pb-[var(--space-section-tablet)] lg:pt-[var(--space-section-desktop)] lg:pb-[var(--space-section-desktop)]">
-        <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
+        {/* <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
           <span className="h-1 w-12 rounded-full bg-accent-purple" aria-hidden="true" />
           <h2 className="font-serif text-2xl font-extrabold tracking-tight text-text-primary sm:text-3xl">
             {howCanWeHelp.heading}
@@ -41,7 +41,7 @@ export function HelpAndFaqSection({ howCanWeHelp, faq, onTopicSelect }: HelpAndF
               onSelect={topic.programOption ? () => onTopicSelect?.(topic.programOption!) : undefined}
             />
           ))}
-        </div>
+        </div> */}
 
         <div className="mt-12 flex flex-col items-center gap-2 text-center sm:mt-14 sm:items-start sm:text-left">
           <span className="h-1 w-12 rounded-full bg-accent-purple" aria-hidden="true" />

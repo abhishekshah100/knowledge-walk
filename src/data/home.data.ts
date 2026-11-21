@@ -12,10 +12,10 @@ export const homeData: HomeContent = {
   hero: {
     slides: [
       {
-        eyebrow: "Knowledge • Leadership • Nation Building",
-        heading: "Where Knowledge Inspires Action",
+        eyebrow: "Learn Beyond the Classroom",
+        heading: "About Knowledge Walk",
         description:
-          "Empowering young minds through civil services guidance, meaningful conclaves, heritage learning and community initiatives.",
+          "Knowledge Walk is an academic and outreach platform led by distinguished professors and academicians from Central Universities, IITs and other reputed institutions in India. It aims to bridge the gap between academic institutions and society by creating opportunities for learning, intellectual exchange, research and cultural engagement.",
         primaryCta: { label: "Explore Our Projects", href: "#" },
         secondaryCta: { label: "View Upcoming Events", href: "/#upcoming-events" },
         image: {
@@ -26,10 +26,10 @@ export const homeData: HomeContent = {
         },
       },
       {
-        eyebrow: "Civil Services • Mentorship • Purpose",
-        heading: "Preparing Tomorrow's Public Servants",
+        eyebrow: "Learn Beyond the Classroom",
+        heading: "Mission IAS",
         description:
-          "Structured mentorship, expert guidance and disciplined preparation for Prelims, Mains and Interview, built around a public-service mindset.",
+          "Mission IAS is a structured Civil Services Foundation Programme designed to introduce school students to the world of public administration, governance and competitive examinations at an early stage.",
         primaryCta: { label: "Explore Mission IAS", href: "/#mission-ias-2026" },
         secondaryCta: { label: "View Upcoming Events", href: "/#upcoming-events" },
         image: {
@@ -39,20 +39,20 @@ export const homeData: HomeContent = {
           height: 887,
         },
       },
-      {
-        eyebrow: "Culture • Identity • Living Traditions",
-        heading: "Rediscovering India's Living Heritage",
-        description:
-          "Heritage conclaves that connect young scholars to civilizational wisdom, art, architecture and cultural memory.",
-        primaryCta: { label: "Heritage Conclaves", href: "/#heritage-conclaves" },
-        secondaryCta: { label: "View Upcoming Events", href: "/#upcoming-events" },
-        image: {
-          src: "/images/hero/hero-slide-3.png",
-          alt: "Students exploring heritage architecture together",
-          width: 1774,
-          height: 887,
-        },
-      },
+      // {
+      //   eyebrow: "Learn Beyond the Classroom",
+      //   heading: "Rediscovering India's Living Heritage",
+      //   description:
+      //     "Heritage conclaves that connect young scholars to civilizational wisdom, art, architecture and cultural memory.",
+      //   primaryCta: { label: "Heritage Conclaves", href: "/#heritage-conclaves" },
+      //   secondaryCta: { label: "View Upcoming Events", href: "/#upcoming-events" },
+      //   image: {
+      //     src: "/images/hero/hero-slide-3.png",
+      //     alt: "Students exploring heritage architecture together",
+      //     width: 1774,
+      //     height: 887,
+      //   },
+      // },
     ],
   },
 
@@ -214,7 +214,7 @@ export const homeData: HomeContent = {
     eyebrow: "Our Flagship Program",
     heading: "Mission IAS 2026",
     description:
-      "A complete roadmap with disciplined preparation, expert guidance and a public-service mindset. Covering Prelims, Mains, Interview and mentorship at every crucial step.",
+      "Mission IAS aims to create an academic environment that promotes awareness, intellectual curiosity and a culture of learning among school students. The programme seeks to establish meaningful interactions and knowledge exchange between serving and retired civil servants, distinguished academicians, subject experts and young learners. By bringing together experienced administrators and academic professionals with school students, Mission IAS aspires to provide early exposure to public administration, governance, contemporary affairs and diverse fields of knowledge. The initiative seeks to go beyond conventional classroom learning by fostering mentorship, intellectual discussions, critical thinking and an informed understanding of society and public service. Our goal is to inspire young minds through interaction, knowledge sharing and academic mentorship, nurturing informed and responsible future citizens.",
     steps: [
       {
         step: 1,
@@ -259,7 +259,7 @@ export const homeData: HomeContent = {
   },
 
   heritageConclave: {
-    heading: "Heritage Conclaves",
+    heading: "Youth Conclave on Heritage",
     description:
       "Spaces to celebrate India's civilizational wisdom, art, architecture and cultural memory with young scholars and practitioners.",
     cta: { label: "Explore The Conclave", href: "/heritage-conclaves" },

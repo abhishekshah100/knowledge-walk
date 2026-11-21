@@ -16,8 +16,7 @@ interface UseJsonFetchResult<T> {
  * when the calling component mounts, and cancels the in-flight request if
  * it unmounts before the response arrives.
  *
- * Every page-data hook (`useAboutPageData`, `useContactPageData`, and the
- * `/api/home` fetch inside `HomeDataProvider`) had this exact
+ * `useAboutPageData` and `useContactPageData` had this exact
  * fetch/abort/error-handling logic copy-pasted with only the URL and
  * response type changed — this is the one place it now lives.
  */

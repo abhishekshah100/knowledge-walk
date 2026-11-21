@@ -7,8 +7,6 @@ import {
 } from "@/lib/enquiryServerValidation";
 import type { EnquiryFormValues } from "@/types/enquiry";
 
-export const runtime = "nodejs";
-
 type EnquiryRequestPayload = EnquiryFormValues & {
   pageUrl?: string;
 };

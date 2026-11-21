@@ -1,3 +1,4 @@
+import { cacheLife } from "next/cache";
 import { navigationData } from "@/data/navigation.data";
 import { homeData } from "@/data/home.data";
 import { eventsData } from "@/data/events.data";
@@ -42,8 +43,19 @@ async function getMedia(): Promise<MediaContent> {
   return mediaData;
 }
 
-/** Aggregates every section required to render the home page. */
+/**
+ * Aggregates every section required to render the home page.
+ *
+ * Cached because every section is currently just an in-memory constant
+ * (see the imports above) — there's no reason to redo that work on every
+ * `GET /api/home` request. `cacheLife('max')` is appropriate since the only
+ * thing that can change this data is a new deploy, which already gets a
+ * fresh cache (the cache key includes the build ID).
+ */
 export async function getHomePageData(): Promise<HomePageData> {
+  "use cache";
+  cacheLife("max");
+
   const [navigation, home, events, stories, media] = await Promise.all([
     getNavigation(),
     getHome(),

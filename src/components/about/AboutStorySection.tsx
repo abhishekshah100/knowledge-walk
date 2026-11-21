@@ -48,15 +48,15 @@ export function AboutStorySection({ story }: AboutStorySectionProps) {
                 ))}
               </div>
 
-              <div className="mt-5 w-full">
+              {/* <div className="mt-5 w-full">
                 <StoryQuoteCard quote={story.quote} />
-              </div>
+              </div> */}
 
-              <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+              {/* <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
                 {story.values.map((value) => (
                   <StoryValueChip key={value.label} value={value} />
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </GlassCard>

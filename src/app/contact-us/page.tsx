@@ -10,8 +10,8 @@ import { useContactPageData } from "@/hooks/useContactPageData";
 /**
  * Contact Us page.
  *
- * Header/Footer are rendered once by `HomeDataProvider` in the root
- * layout, not here — only this page's own `/api/contact` payload is
+ * Header/Footer are rendered once by the root layout, not here — only
+ * this page's own `/api/contact` payload is
  * fetched and rendered as the routed page body.
  */
 export default function ContactPage() {

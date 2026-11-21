@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { EnquiryProvider } from "@/components/enquiry/EnquiryProvider";
 import { FloatingContactButtons } from "@/components/layout/FloatingContactButtons";
-import { HomeDataProvider } from "@/components/layout/HomeDataProvider";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import { siteMetaData } from "@/data/home.data";
+import { getHomePageData } from "@/services/home.service";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,7 +20,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const { navigation } = await getHomePageData();
+
   return (
     <html lang="en" className="h-full antialiased" data-scroll-behavior="smooth">
       <head>
@@ -51,7 +55,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
         <EnquiryProvider>
-          <HomeDataProvider>{children}</HomeDataProvider>
+          <Header navigation={navigation} />
+          {children}
+          <Footer navigation={navigation} />
           <FloatingContactButtons />
         </EnquiryProvider>
       </body>

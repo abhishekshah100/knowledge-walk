@@ -70,12 +70,12 @@ export const officeLocationData: OfficeLocationContent = {
     {
       icon: { src: `${ICONS_DIR}/navigation.webp`, alt: "Nearby landmark icon", width: 128, height: 128 },
       title: "Nearby Landmark",
-      lines: ["Close to Phase 3 Metro Station"],
+      lines: ["Close to Malviya Nagar / Saket Metro Station"],
     },
     {
       icon: { src: `${ICONS_DIR}/metro-bus.webp`, alt: "Metro and bus icon", width: 128, height: 128 },
       title: "By Metro / Bus",
-      lines: ["Phase 3 Metro Station (Yellow Line)", "Well connected by NH-48 bus routes"],
+      lines: ["Malviya Nagar / Saket Metro Station (Yellow Line)"],
     },
     {
       icon: { src: `${ICONS_DIR}/clock.webp`, alt: "Office hours icon", width: 128, height: 128 },

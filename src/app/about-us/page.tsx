@@ -11,8 +11,8 @@ import { useAboutPageData } from "@/hooks/useAboutPageData";
 /**
  * About Us page.
  *
- * Header/Footer are rendered once by `HomeDataProvider` in the root
- * layout, not here — only this page's own `/api/about` payload is
+ * Header/Footer are rendered once by the root layout, not here — only
+ * this page's own `/api/about` payload is
  * fetched and rendered as the routed page body.
  */
 export default function AboutPage() {
@@ -44,8 +44,8 @@ export default function AboutPage() {
     <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
       <AboutHeroSection hero={aboutData.hero} />
       <AboutStorySection story={aboutData.story} />
-      <OurValuesSection values={aboutData.values} />
-      <OurJourneySection journey={aboutData.journey} />
+      {/* <OurValuesSection values={aboutData.values} />
+      <OurJourneySection journey={aboutData.journey} /> */}
       <OurTeamSection team={aboutData.team} />
     </main>
   );

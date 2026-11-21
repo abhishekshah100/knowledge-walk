@@ -29,10 +29,11 @@ export const aboutHeroData: AboutHeroContent = {
 /** Content for the About Us page's second section — "Our Story". */
 export const aboutStoryData: AboutStoryContent = {
   badge: "Our Story",
-  heading: "A Movement Built Around Knowledge",
+  heading: "Welcome to Knowledge Walk",
   paragraphs: [
-    "Knowledge Walk is a youth-led nation-building platform that brings together learning, leadership, heritage, civil-service guidance and community action. We create spaces where young people can learn from experts, engage in meaningful dialogues, explore our cultural roots, and work on solutions for a stronger, more inclusive India.",
-    "Through programs like Mission IAS, Heritage Conclaves, youth dialogues and grassroots initiatives, we aim to nurture informed, compassionate and active citizens who are ready to lead with integrity and serve society.",
+    "Knowledge Walk is an academic and cultural outreach initiative that seeks to bring knowledge beyond the boundaries of classrooms and academic institutions. By connecting distinguished academicians, researchers, educational institutions and young learners, Knowledge Walk creates opportunities for intellectual exchange, experiential learning and meaningful engagement with India's historical, cultural and knowledge traditions.",
+    "Through academic programmes, heritage initiatives, student engagement activities, research-oriented discussions and educational outreach, Knowledge Walk strives to nurture an informed, intellectually curious and culturally conscious society.",
+    "Our commitment is to make knowledge accessible, meaningful and transformative.",
   ],
   quote: {
     quote: "When knowledge is shared with purpose, it becomes a force for change.",
@@ -137,7 +138,7 @@ export const ourJourneyData: OurJourneyContent = {
 /** Content for the About Us page's fifth (currently last) section — "Our Team". */
 export const ourTeamData: OurTeamContent = {
   badge: "Our Team",
-  heading: "Meet Our Team",
+  heading: "Wishes from our Directors",
   subtitle: "The people building Knowledge Walk, one conversation at a time.",
   members: [
     {

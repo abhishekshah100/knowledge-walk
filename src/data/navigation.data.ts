@@ -19,7 +19,7 @@ export const navigationData: NavigationContent = {
   // Real intrinsic ratio (the SVG's own viewBox is 512x320 = 1.6:1) — kept
   // accurate so `next/image`'s aspect-ratio check doesn't flag a mismatch
   // wherever a component only overrides one CSS dimension (e.g. `h-10 w-auto`).
-  logo: { src: "/images/brand/knowledge-walk-logo.svg", alt: "Knowledge Walk logo", width: 64, height: 40 },
+  logo: { src: "/images/brand/knowledge-walk-logo.jpeg", alt: "Knowledge Walk logo", width: 64, height: 40 },
   primaryLinks: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about-us" },
