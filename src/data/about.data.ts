@@ -137,33 +137,16 @@ export const ourJourneyData: OurJourneyContent = {
 
 /** Content for the About Us page's fifth (currently last) section — "Our Team". */
 export const ourTeamData: OurTeamContent = {
-  badge: "Our Team",
   heading: "Wishes from our Directors",
-  subtitle: "The people building Knowledge Walk, one conversation at a time.",
-  members: [
-    {
-      photo: { src: `${PHOTOS_DIR}/team-ananya-sharma.webp`, alt: "Ananya Sharma", width: 512, height: 349 },
-      name: "Ananya Sharma",
-      role: "Program Lead",
-      quote: "More young voices, stronger solutions.",
-    },
-    {
-      photo: { src: `${PHOTOS_DIR}/team-rohan-mehta.webp`, alt: "Rohan Mehta", width: 512, height: 355 },
-      name: "Rohan Mehta",
-      role: "Mentor",
-      quote: "Curiosity today, stronger India tomorrow.",
-    },
-    {
-      photo: { src: `${PHOTOS_DIR}/team-megha-iyer.webp`, alt: "Megha Iyer", width: 512, height: 346 },
-      name: "Megha Iyer",
-      role: "Community Volunteer",
-      quote: "Service gives meaning to what we learn.",
-    },
-    {
-      photo: { src: `${PHOTOS_DIR}/team-dr-arvind-rao.webp`, alt: "Dr. Arvind Rao", width: 512, height: 616 },
-      name: "Dr. Arvind Rao",
-      role: "Founder & Mentor",
-      quote: "Knowledge finds its true purpose only in service.",
-    },
+  paragraphs: [
+    "At Knowledge Walk, we believe that knowledge is not confined to classrooms, books or institutions; it is a continuous journey of exploration, understanding and discovery.",
+    "Our endeavour is to create meaningful opportunities for students, academicians, researchers and intellectuals to come together, exchange ideas and contribute to society. Through our academic, educational and cultural initiatives, we aspire to nurture curiosity, encourage critical thinking and promote a deeper appreciation of India's rich intellectual and cultural heritage.",
+    "We firmly believe that empowering young minds through knowledge and education is essential for building a progressive and enlightened society. We invite students, scholars, educational institutions and well-wishers to join us in this journey.",
+    "Together, let us make knowledge accessible, meaningful and transformative.",
+  ],
+  signoff: "With best wishes,",
+  directors: [
+    { name: "Shri Tom Jacob", title: "Director, Knowledge Walk" },
+    { name: "Shri Venkitesh Raj", title: "Director, Knowledge Walk" },
   ],
 };

@@ -213,32 +213,32 @@ export const homeData: HomeContent = {
   missionIas: {
     eyebrow: "Our Flagship Program",
     heading: "Mission IAS 2026",
-    description:
-      "Mission IAS aims to create an academic environment that promotes awareness, intellectual curiosity and a culture of learning among school students. The programme seeks to establish meaningful interactions and knowledge exchange between serving and retired civil servants, distinguished academicians, subject experts and young learners. By bringing together experienced administrators and academic professionals with school students, Mission IAS aspires to provide early exposure to public administration, governance, contemporary affairs and diverse fields of knowledge. The initiative seeks to go beyond conventional classroom learning by fostering mentorship, intellectual discussions, critical thinking and an informed understanding of society and public service. Our goal is to inspire young minds through interaction, knowledge sharing and academic mentorship, nurturing informed and responsible future citizens.",
-    steps: [
+    description: [
+      "Mission IAS aims to create an academic environment that promotes awareness, intellectual curiosity and a culture of learning among school students. The programme seeks to establish meaningful interactions and knowledge exchange between serving and retired civil servants, distinguished academicians, subject experts and young learners.",
+      "By bringing together experienced administrators and academic professionals with school students, Mission IAS aspires to provide early exposure to public administration, governance, contemporary affairs and diverse fields of knowledge.",
+      "The initiative seeks to go beyond conventional classroom learning by fostering mentorship, intellectual discussions, critical thinking and an informed understanding of society and public service. Our goal is to inspire young minds through interaction, knowledge sharing and academic mentorship, nurturing informed and responsible future citizens.",
+      "Our goal is to inspire young minds through interaction, knowledge sharing and academic mentorship, nurturing informed and responsible future citizens.",
+    ],
+    facts: [
       {
-        step: 1,
-        icon: { src: "/images/mission-ias/icon-foundation.svg", alt: "Foundation stage icon" },
-        title: "Foundation",
-        description: "Concepts, NCERTs and Current Affairs basics",
+        icon: "graduation-cap",
+        label: "Who can participate",
+        value: "Classes 8–12",
       },
       {
-        step: 2,
-        icon: { src: "/images/mission-ias/icon-prelims.svg", alt: "Prelims stage icon" },
-        title: "Prelims",
-        description: "Advanced topics, practice tests and strategy building",
+        icon: "calendar-days",
+        label: "Duration",
+        value: "10 Months",
       },
       {
-        step: 3,
-        icon: { src: "/images/mission-ias/icon-mains.svg", alt: "Mains stage icon" },
-        title: "Mains",
-        description: "Answer writing, ethics and deep domain insights",
+        icon: "clock",
+        label: "Learning Hours",
+        value: "200 Hours",
       },
       {
-        step: 4,
-        icon: { src: "/images/mission-ias/icon-interview.svg", alt: "Interview stage icon" },
-        title: "Interview",
-        description: "Personality development and mock interviews",
+        icon: "monitor",
+        label: "Learning Mode",
+        value: "Hybrid",
       },
     ],
     primaryCta: { label: "Know About Us", href: "/about-us" },
@@ -260,8 +260,11 @@ export const homeData: HomeContent = {
 
   heritageConclave: {
     heading: "Youth Conclave on Heritage",
-    description:
-      "Spaces to celebrate India's civilizational wisdom, art, architecture and cultural memory with young scholars and practitioners.",
+    description: [
+      "The initiative seeks to bring together school and university students, historians, archaeologists, academicians, civil servants, cultural practitioners and heritage professionals on a common platform to facilitate knowledge exchange, intellectual dialogue and meaningful discussions on India's diverse heritage traditions.",
+      "The Conclave provides an opportunity for students to interact directly with distinguished scholars, experts and professionals, gaining insights into India's historical experiences, cultural diversity, architectural traditions, artistic expressions and indigenous knowledge systems.",
+      "Through academic sessions, expert lectures, panel discussions, cultural presentations and interactive activities, the initiative aims to take heritage education beyond textbooks and classrooms.",
+    ],
     cta: { label: "Explore The Conclave", href: "/heritage-conclaves" },
     image: {
       src: "/images/heritage/heritage.png",
@@ -269,23 +272,6 @@ export const homeData: HomeContent = {
       width: 1537,
       height: 1023,
     },
-    highlights: [
-      {
-        icon: { src: "/images/heritage/icon-culture-identity.svg", alt: "Culture and Identity icon" },
-        title: "Culture & Identity",
-        description: "Understanding who we are through diverse symbols and shared heritage.",
-      },
-      {
-        icon: { src: "/images/heritage/icon-living-traditions.svg", alt: "Living Traditions icon" },
-        title: "Living Traditions",
-        description: "Exploring classical arts and festivals and crafts that keep our roots alive.",
-      },
-      {
-        icon: { src: "/images/heritage/icon-ideas-generations.svg", alt: "Ideas Across Generations icon" },
-        title: "Ideas Across Generations",
-        description: "Timeless ideas and values that continue to shape our modern world.",
-      },
-    ],
   },
 
   ideasInMotion: {

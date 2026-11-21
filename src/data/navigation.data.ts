@@ -42,7 +42,7 @@ export const navigationData: NavigationContent = {
           { label: "Mission IAS 2026", href: "/#mission-ias-2026" },
           { label: "Youth Conclaves", href: "#" },
           { label: "Heritage Conclaves", href: "/#heritage-conclaves" },
-          { label: "Other Activities", href: "#" },
+          { label: "About Us", href: "/about-us" },
         ],
       },
       // {

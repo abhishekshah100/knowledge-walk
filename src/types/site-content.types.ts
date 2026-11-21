@@ -133,11 +133,12 @@ export interface BuildingLeadersContent {
   cta: LinkItem;
 }
 
-export interface MissionStep {
-  step: number;
-  icon: ImageAsset;
-  title: string;
-  description: string;
+export type MissionFactIcon = "graduation-cap" | "calendar-days" | "clock" | "monitor";
+
+export interface MissionFact {
+  icon: MissionFactIcon;
+  label: string;
+  value: string;
 }
 
 export interface DashboardPreview {
@@ -151,26 +152,19 @@ export interface DashboardPreview {
 export interface MissionIasContent {
   eyebrow: string;
   heading: string;
-  description: string;
-  steps: MissionStep[];
+  description: string[];
+  facts: MissionFact[];
   primaryCta: LinkItem;
   secondaryCta: LinkItem;
   image: ImageAsset;
   dashboardPreview: DashboardPreview;
 }
 
-export interface HeritageHighlight {
-  icon: ImageAsset;
-  title: string;
-  description: string;
-}
-
 export interface HeritageConclaveContent {
   heading: string;
-  description: string;
+  description: string[];
   cta: LinkItem;
   image: ImageAsset;
-  highlights: HeritageHighlight[];
 }
 
 export interface IdeaInMotion {
@@ -459,18 +453,16 @@ export interface OurJourneyContent {
 // About page — "Our Team"
 // ---------------------------------------------------------------------------
 
-export interface TeamMember {
-  photo: ImageAsset;
+export interface DirectorSignature {
   name: string;
-  role: string;
-  quote: string;
+  title: string;
 }
 
 export interface OurTeamContent {
-  badge: string;
   heading: string;
-  subtitle: string;
-  members: TeamMember[];
+  paragraphs: string[];
+  signoff: string;
+  directors: DirectorSignature[];
 }
 
 // ---------------------------------------------------------------------------

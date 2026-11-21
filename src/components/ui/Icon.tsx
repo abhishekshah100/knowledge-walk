@@ -5,7 +5,7 @@ export type IconName =
   | "book-open" | "users" | "hand-heart" | "landmark" | "calendar-days"
   | "user-check" | "columns-3" | "compass" | "megaphone" | "landmark-arch"
   | "handshake" | "shield-check" | "clock" | "map-pin" | "play" | "mail" | "phone"
-  | "whatsapp" | "send" | "check-circle" | "quote";
+  | "whatsapp" | "send" | "check-circle" | "quote" | "graduation-cap" | "monitor";
 
 type IconProps = Omit<SVGProps<SVGSVGElement>, "name"> & { name: IconName };
 
@@ -16,6 +16,7 @@ const ICON_PATHS: Record<IconName, ReactNode> = {
   "chevron-right": <polyline points="9 18 15 12 9 6" />,
   "chevron-down": <polyline points="6 9 12 15 18 9" />,
   "book-open": <><path d="M2 5c2-1 5-1 7 0v14c-2-1-5-1-7 0Z" /><path d="M22 5c-2-1-5-1-7 0v14c2-1 5-1 7 0Z" /></>,
+  "graduation-cap": <><path d="m2 9 10-5 10 5-10 5-10-5Z" /><path d="M6 11v5c3.5 2.7 8.5 2.7 12 0v-5" /><path d="M22 9v6" /></>,
   users: <><circle cx="9" cy="8" r="3.2" /><path d="M3.5 19c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2" /><circle cx="17" cy="9" r="2.6" /><path d="M15.5 13.6c2.4.3 4 2.2 4 5.4" /></>,
   "hand-heart": <><path d="M12 8.6c-1-1.7-3.4-1.9-4.4-.2-1 1.6 0 3.2 4.4 6.6 4.4-3.4 5.4-5 4.4-6.6-1-1.7-3.4-1.5-4.4.2Z" /><path d="M3 15.5h4l2.2-1.6a2 2 0 0 1 2.4 0l.9.7a1.6 1.6 0 0 1 -1 2.9H8" /><path d="M3 14.5v6" /></>,
   landmark: <><path d="M4 9.5 12 4l8 5.5" /><path d="M5 9.5v9M9.5 9.5v9M14.5 9.5v9M19 9.5v9" /><path d="M3 20.5h18" /></>,
@@ -28,6 +29,7 @@ const ICON_PATHS: Record<IconName, ReactNode> = {
   handshake: <><path d="M2.5 11.5l4-2.8 3 1.8h5l3-1.8 4 2.8" /><path d="M7.5 13.8l2 2 2-1.2 2 2 2-1.2" /></>,
   "shield-check": <><path d="M12 3.5l7 2.6v5.4c0 4.3-2.9 7.9-7 9-4.1-1.1-7-4.7-7-9V6.1Z" /><path d="M9 12l2 2 4-4.2" /></>,
   clock: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
+  monitor: <><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8M12 17v4" /></>,
   "map-pin": <><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></>,
   play: <path d="m9 6 8 6-8 6Z" fill="currentColor" stroke="none" />,
   mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></>,

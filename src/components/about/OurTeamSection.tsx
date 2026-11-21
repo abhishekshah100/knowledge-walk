@@ -1,68 +1,48 @@
-"use client";
-
-import { lazy, Suspense } from "react";
 import { Container } from "@/components/ui/Container";
-import { TeamMemberCard } from "./TeamMemberCard";
+import { Icon } from "@/components/ui/Icon";
 import type { OurTeamContent } from "@/types/site-content.types";
 
 interface OurTeamSectionProps {
   team: OurTeamContent;
 }
 
-/** One row fits exactly 4 cards at `lg:` — beyond that, a swiper takes over instead of wrapping awkwardly. */
-const CARDS_PER_ROW = 4;
-
-/**
- * Swiper (JS + CSS) is only ever needed once there are more members than
- * fit in one row — lazily imported so the static-grid path (today's 4
- * members) never fetches it at all. Plain `React.lazy` rather than
- * `next/dynamic`: Next.js proactively emits a `<link rel="preload">` for a
- * `next/dynamic` chunk's CSS the moment it's referenced anywhere in the
- * module graph, regardless of whether the runtime condition below ever
- * actually renders it — which is exactly what triggered the browser's
- * "preloaded but not used" warning even after switching away from a
- * top-level `import "swiper/css"`. `React.lazy` code-splits the same way
- * without that automatic preload hint, so the chunk (CSS included) is only
- * fetched when `needsCarousel` is actually true.
- */
-const TeamCarousel = lazy(() => import("./TeamCarousel").then((mod) => ({ default: mod.TeamCarousel })));
-
-/**
- * About Us page's fifth (currently last) section — "Our Team". Four or
- * fewer members render as a plain static grid (one row on desktop); more
- * than that switches to the same Swiper carousel pattern used by
- * `VoicesOfChangeSection`/`UpcomingEventsSection` — auto-advancing every
- * second on both desktop and mobile, same as that carousel — so the page
- * never shows an awkward half-empty last row. Anchored by `#our-team` so
- * the hero's "Meet Our Team" link can jump straight to it.
- */
+/** About Us page's director message, anchored by `#our-team`. */
 export function OurTeamSection({ team }: OurTeamSectionProps) {
-  const needsCarousel = team.members.length > CARDS_PER_ROW;
-
   return (
     <section id="our-team" className="relative scroll-mt-24 bg-background">
       <Container className="py-12 lg:py-14">
-        <div className="flex flex-col items-center gap-2 text-center">
-          <span className="w-fit rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-primary uppercase">
-            {team.badge}
-          </span>
+        <div className="mx-auto max-w-5xl">
           <h2 className="font-serif text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             {team.heading}
           </h2>
-          <p className="max-w-xl text-sm text-text-secondary sm:text-base">{team.subtitle}</p>
-        </div>
+          <article className="relative mt-6 overflow-hidden rounded-3xl border border-border bg-surface shadow-md">
+            <div className="absolute inset-x-0 top-0 h-1 bg-primary" aria-hidden="true" />
+            <div className="p-5 sm:p-8 lg:p-10">
+              <div className="flex items-start gap-4">
+                <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Icon name="quote" className="h-5 w-5" />
+                </span>
+                <blockquote className="min-w-0 space-y-4 text-sm leading-7 text-text-secondary sm:text-base sm:leading-8">
+                  {team.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </blockquote>
+              </div>
 
-        {needsCarousel ? (
-          <Suspense fallback={null}>
-            <TeamCarousel members={team.members} cardsPerRow={CARDS_PER_ROW} />
-          </Suspense>
-        ) : (
-          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {team.members.map((member) => (
-              <TeamMemberCard key={member.name} member={member} />
-            ))}
-          </div>
-        )}
+              <div className="mt-8 border-t border-border pt-6">
+                <p className="font-serif text-base font-semibold text-text-primary">{team.signoff}</p>
+                <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                  {team.directors.map((director) => (
+                    <div key={director.name} className="border-l-2 border-accent-gold pl-4">
+                      <p className="font-serif text-lg font-bold text-text-primary">{director.name}</p>
+                      <p className="mt-1 text-sm font-medium text-primary">{director.title}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
       </Container>
     </section>
   );
